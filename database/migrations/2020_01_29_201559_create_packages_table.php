@@ -18,8 +18,6 @@ class CreatePackagesTable extends Migration
             $table->dateTime('trip_start_date_time');
             $table->dateTime('trip_end_date_time');
             $table->float('price_per_head');
-            $table->string('currency');
-            $table->string('currency');
             $table->timestamps();
         });
     }

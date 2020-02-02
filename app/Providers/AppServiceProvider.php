@@ -2,6 +2,11 @@
 
 namespace App\Providers;
 
+use App\Http\Controllers\ItineraryController;
+use App\Http\Controllers\PackagesController;
+use App\Interfaces\ModelInterface;
+use App\Itinerary;
+use App\Package;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +28,22 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->app->when(PackagesController::class)
+            ->needs(ModelInterface::class)
+            ->give(function () {
+                return new Package();
+            });
+
+        $this->app->when(ItineraryController::class)
+            ->needs(ModelInterface::class)
+            ->give(function () {
+                return new Itinerary();
+            });
+
+        $this->app->when(ItineraryController::class)
+            ->needs(ModelInterface::class)
+            ->give(function () {
+                return new Itinerary();
+            });
     }
 }

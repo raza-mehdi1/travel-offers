@@ -11,6 +11,18 @@
 |
 */
 
+
+
+Route::get('/change-locale/{locale}', 'LocaleController@handle')
+    ->name('change-locale');
+
 Route::get('/', function () {
     return view('welcome');
+});
+
+Auth::routes();
+
+Route::middleware('auth')->group(function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('packages', 'PackagesController');
 });
