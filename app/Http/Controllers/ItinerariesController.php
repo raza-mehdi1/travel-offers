@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Interfaces\ModelInterface;
 use Illuminate\Http\Request;
 
-class ItineraryController extends Controller
+class ItinerariesController extends Controller
 {
+    protected $model;
 
-    public function __construct()
+    public function __construct(ModelInterface $model)
     {
-
+        $this->model = $model;
     }
-
     /**
      * Display a listing of the resource.
      *

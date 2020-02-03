@@ -62,8 +62,10 @@
                                                 <a class="btn btn-primary" href="{{route('packages.edit', $package->id)}}">Edit</a>
                                             </td>
                                             <td>
-                                                <form action="{{route('packages.destroy', $package->id)}}">
-                                                    <button class="btn btn-danger">Delete</button>
+                                                <form action="{{route('packages.destroy', $package->id)}}" id="formPackage{{$package->id}}" method="post">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="button" class="btn btn-danger" onclick='confirmDelete("{{$package->id}}", "Package")'>Delete</button>
                                                 </form>
                                             </td>
                                         </tr>

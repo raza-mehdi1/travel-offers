@@ -29,6 +29,13 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@9/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/sweetalert2@9/dist/sweetalert2.min.css" id="theme-styles">
+    <style>
+        .has-error .form-control{
+            border-color: red !important;
+        }
+    </style>
     @yield('styles')
 
 </head>
@@ -42,6 +49,7 @@
     @include('admin.layouts.partials.sidebar')
 
     <!-- Content Wrapper. Contains page content -->
+
     @yield('content')
     <!-- /.content-wrapper -->
 
@@ -78,5 +86,25 @@
 <script src="/dist/js/demo.js"></script>
 <!-- Page script -->
 @yield('scripts')
+
+<script>
+    function confirmDelete(id, modelType) {
+        Swal.fire({
+            title: 'Are you sure to delete the '+modelType+'?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.value) {
+                $('#form'+modelType+id).submit();
+            }
+        })
+
+        // confirm('Do you really want to delete')
+    }
+</script>
 </body>
 </html>

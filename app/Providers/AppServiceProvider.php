@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Http\Controllers\ItineraryController;
+use App\Http\Controllers\ItinerariesController;
 use App\Http\Controllers\PackagesController;
 use App\Interfaces\ModelInterface;
 use App\Itinerary;
@@ -34,13 +34,7 @@ class AppServiceProvider extends ServiceProvider
                 return new Package();
             });
 
-        $this->app->when(ItineraryController::class)
-            ->needs(ModelInterface::class)
-            ->give(function () {
-                return new Itinerary();
-            });
-
-        $this->app->when(ItineraryController::class)
+        $this->app->when(ItinerariesController::class)
             ->needs(ModelInterface::class)
             ->give(function () {
                 return new Itinerary();

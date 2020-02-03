@@ -32,12 +32,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Create Package</h1>
+                        <h1>Edit Package</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Packages</a></li>
-                            <li class="breadcrumb-item active">Create</li>
+                            <li class="breadcrumb-item active">Edit</li>
                         </ol>
                     </div>
                 </div>
@@ -46,6 +46,7 @@
 
         <!-- Main content -->
         <section class="content">
+
             <div class="container-fluid">
             @include('admin.layouts.partials.message')
             <!-- SELECT2 EXAMPLE -->
@@ -57,16 +58,15 @@
                     </div>
 
                     <!-- /.card-header -->
-                    <form action="{{route('packages.store')}}" method="post">
+                    <form action="{{route('packages.update', $package->id)}}" method="post">
                         @csrf
-                        @include('admin.packages.partials.form_fields')
+                        @method('PATCH')
+                        @include('admin.packages.partials.form_fields', ['package' => $package])
                     </form>
                 </div>
 
                     <!-- /.card-body -->
                 <div class="card-footer">
-{{--                Visit <a href="https://select2.github.io/">Select2 documentation</a> for more examples and information about--}}
-{{--                the plugin.--}}
                 </div>
                 <!-- /.card -->
             </div><!-- /.container-fluid -->

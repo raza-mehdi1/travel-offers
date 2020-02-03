@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreatePackage;
+use App\Http\Requests\UpdatePackage;
 use App\Interfaces\ModelInterface;
 use App\Package;
 use Illuminate\Http\Request;
@@ -39,12 +41,12 @@ class PackagesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  CreatePackage  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreatePackage $request)
     {
-        $package = !Package::create($request->all());
+        $package = $this->model->create($request->all());
 
         if($package){
             $request->session()->flash('status', 'success');
@@ -76,19 +78,30 @@ class PackagesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $package = $this->model->find($id);
+        return view('admin.packages.edit', compact('package'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  UpdatePackage  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdatePackage $request, $id)
     {
-        //
+        $package = $this->model->find($id);
+
+        if($package->update($request->all())){
+            $request->session()->flash('status', 'success');
+            $request->session()->flash('message', 'Package updated successfully!');
+        } else {
+            $request->session()->flash('status', 'danger');
+            $request->session()->flash('message', 'Oops! Something went wrong...');
+        }
+
+        return redirect()->back();
     }
 
     /**
@@ -99,6 +112,16 @@ class PackagesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $package = $this->model->find($id);
+
+        if($package->delete()){
+            request()->session()->flash('status', 'success');
+            request()->session()->flash('message', 'Package deleted successfully!');
+        } else {
+            request()->session()->flash('status', 'danger');
+            request()->session()->flash('message', 'Oops! Something went wrong...');
+        }
+
+        return redirect()->back();
     }
 }

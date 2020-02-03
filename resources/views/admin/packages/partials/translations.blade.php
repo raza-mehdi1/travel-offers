@@ -15,17 +15,17 @@
 
                     <div class="form-group  {{ $errors->has('title') ? 'has-error' : '' }}">
                         <label>{{ __('general.title') }} *</label>
-                        <input class="form-control" name="{{$locale->locale}}[title]" {{ $errors->has('en.title') ? 'border-danger' : '' }} value="{{ old($locale->locale.'.title' ,optional($locale->locale)->{'title:'.$locale->locale}) }}" placeholder="@lang('general.title')">
+                        <input class="form-control" name="{{$locale->locale}}[title]" {{ $errors->has('en.title') ? 'border-danger' : '' }} value="{{ @$package ? $package->translate($locale->locale)->title : old($locale->locale.'.title' ,optional($locale->locale)->{'title:'.$locale->locale}) }}" placeholder="@lang('general.title')">
                     </div>
 
                     <div class="form-group  {{ $errors->has('tag_line') ? 'has-error' : '' }}">
                         <label>{{ __('general.tag_line') }} *</label>
-                        <input class="form-control" name="{{$locale->locale}}[tag_line]" {{ $errors->has('en.tag_line') ? 'border-danger' : '' }} value="{{ old($locale->locale.'.tag_line' ,optional($locale->locale)->{'tag_line:'.$locale->locale}) }}" placeholder="@lang('general.tag_line')">
+                        <input class="form-control" name="{{$locale->locale}}[tag_line]" {{ $errors->has('en.tag_line') ? 'border-danger' : '' }} value="{{ @$package ? $package->translate($locale->locale)->tag_line : old($locale->locale.'.tag_line' ,optional($locale->locale)->{'tag_line:'.$locale->locale}) }}" placeholder="@lang('general.tag_line')">
                     </div>
 
                     <div class="form-group  {{ $errors->has('description') ? 'has-error' : '' }}">
                         <label>{{ __('general.description') }} *</label>
-                        <input class="form-control" name="{{$locale->locale}}[description]" {{ $errors->has('en.description') ? 'border-danger' : '' }} value="{{ old($locale->locale.'.description' ,optional($locale->locale)->{'description:'.$locale->locale}) }}" placeholder="@lang('general.description')">
+                        <input class="form-control" name="{{$locale->locale}}[description]" {{ $errors->has('en.description') ? 'border-danger' : '' }} value="{{ @$package ? $package->translate($locale->locale)->description : old($locale->locale.'.description' ,optional($locale->locale)->{'description:'.$locale->locale}) }}" placeholder="@lang('general.description')">
                     </div>
 
                 </div>
