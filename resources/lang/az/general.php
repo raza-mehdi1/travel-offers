@@ -19,5 +19,11 @@ return [
     'save'=>'Yadda saxla',
     'package'=>'Paket',
     'packages'=>'Paketlər',
+    'itineraries'=>'Marşrutlar',
+    'itinerary'=>'Marşrut',
+    'side_title'=>'Yan Başlıq',
+    'itinerary_features'=>'yol xüsusiyyətləri',
+    'text'=>'mətn',
+    'icon'=>'Nişan',
 
 ];

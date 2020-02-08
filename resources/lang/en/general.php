@@ -19,5 +19,11 @@ return [
     'save'=>'Save',
     'package'=>'Package',
     'packages'=>'Packages',
+    'itineraries'=>'Itineraries',
+    'itinerary'=>'Itinerary',
+    'side_title'=>'Side Title',
+    'itinerary_features'=>'Itinerary Features',
+    'text'=>'Text',
+    'icon'=>'Icon',
 
 ];

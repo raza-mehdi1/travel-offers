@@ -35,6 +35,9 @@
         .has-error .form-control{
             border-color: red !important;
         }
+        textarea{
+            height: 200px !important;
+        }
     </style>
     @yield('styles')
 

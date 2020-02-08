@@ -15,7 +15,6 @@ class CreateItinerariesTable extends Migration
     {
         Schema::create('itineraries', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('package_id');
             $table->timestamps();
         });
     }

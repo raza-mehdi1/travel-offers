@@ -58,7 +58,7 @@
                     </div>
 
                     <!-- /.card-header -->
-                    <form action="{{route('packages.update', $package->id)}}" method="post">
+                    <form action="{{route('packages.update', $package->id)}}" method="post" autocomplete="off">
                         @csrf
                         @method('PATCH')
                         @include('admin.packages.partials.form_fields', ['package' => $package])
@@ -81,15 +81,22 @@
 <script>
     $(function () {
 
-        $('#trip_start_date_time').datetimepicker({
-            minDate: 'now',
-            format: 'YYYY-MM-DD HH:mm:ss'
-        });
 
-        $('#trip_end_date_time').datetimepicker({
-            minDate: 'now',
-            format: 'YYYY-MM-DD HH:mm:ss'
-        });
+        $('#trip_start_date_time').datetimepicker(
+            {
+                minDate: 'now',
+                format: 'YYYY-MM-DD HH:mm:ss',
+                defaultDate:'now'
+            }
+        );
+
+        $('#trip_end_date_time').datetimepicker(
+            {
+                minDate: 'now',
+                format: 'YYYY-MM-DD HH:mm:ss',
+                defaultDate: moment(new Date()).add(1,'days')
+            }
+        );
 
 
 

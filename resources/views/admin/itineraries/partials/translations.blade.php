@@ -15,17 +15,17 @@
 
                     <div class="form-group  {{ $errors->has($locale->locale.'.title') ? 'has-error' : '' }}">
                         <label>{{ __('general.title') }} *</label>
-                        <input class="form-control" name="{{$locale->locale}}[title]" value="{{ @$package ? $package->translate($locale->locale)->title : old($locale->locale.'.title' ,optional($locale->locale)->{'title:'.$locale->locale}) }}" placeholder="@lang('general.title')">
+                        <input class="form-control" name="{{$locale->locale}}[title]" value="{{ @$itinerary ? $itinerary->translate($locale->locale)->title : old($locale->locale.'.title' ,optional($locale->locale)->{'title:'.$locale->locale}) }}" placeholder="@lang('general.title')">
                     </div>
 
-                    <div class="form-group  {{ $errors->has($locale->locale.'.tag_line') ? 'has-error' : '' }}">
-                        <label>{{ __('general.tag_line') }} *</label>
-                        <input class="form-control" name="{{$locale->locale}}[tag_line]" value="{{ @$package ? $package->translate($locale->locale)->tag_line : old($locale->locale.'.tag_line' ,optional($locale->locale)->{'tag_line:'.$locale->locale}) }}" placeholder="@lang('general.tag_line')">
+                    <div class="form-group  {{ $errors->has($locale->locale.'.side_title') ? 'has-error' : '' }}">
+                        <label>{{ __('general.side_title') }} *</label>
+                        <input class="form-control" name="{{$locale->locale}}[side_title]" value="{{ @$itinerary ? $itinerary->translate($locale->locale)->side_title : old($locale->locale.'.side_title' ,optional($locale->locale)->{'side_title:'.$locale->locale}) }}" placeholder="@lang('general.side_title')">
                     </div>
 
                     <div class="form-group  {{ $errors->has($locale->locale.'.description') ? 'has-error' : '' }}">
                         <label>{{ __('general.description') }} *</label>
-                        <textarea class="form-control" name="{{$locale->locale}}[description]"  placeholder="@lang('general.description')">{{ @$package ? $package->translate($locale->locale)->description : old($locale->locale.'.description' ,optional($locale->locale)->{'description:'.$locale->locale}) }}</textarea>
+                        <textarea class="form-control" name="{{$locale->locale}}[description]"  placeholder="@lang('general.description')">{{ @$itinerary ? $itinerary->translate($locale->locale)->description : old($locale->locale.'.description' ,optional($locale->locale)->{'description:'.$locale->locale}) }}</textarea>
                     </div>
 
                 </div>

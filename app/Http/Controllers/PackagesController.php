@@ -49,10 +49,10 @@ class PackagesController extends Controller
         $package = $this->model->create($request->all());
 
         if($package){
-            $request->session()->flash('status', 'success');
+            $request->session()->flash('status',  'success');
             $request->session()->flash('message', 'New Package was created successful!');
         } else {
-            $request->session()->flash('status', 'danger');
+            $request->session()->flash('status',  'danger');
             $request->session()->flash('message', 'Oops! Something went wrong...');
         }
 

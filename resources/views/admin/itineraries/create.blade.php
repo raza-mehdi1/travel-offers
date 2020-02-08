@@ -32,11 +32,11 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Create Package</h1>
+                        <h1>Create Itinerary</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Packages</a></li>
+                            <li class="breadcrumb-item"><a href="#">Itineraries</a></li>
                             <li class="breadcrumb-item active">Create</li>
                         </ol>
                     </div>
@@ -57,9 +57,9 @@
                     </div>
 
                     <!-- /.card-header -->
-                    <form action="{{route('packages.store')}}" method="post" autocomplete="off">
+                    <form action="{{route('itineraries.store')}}" method="post" autocomplete="off">
                         @csrf
-                        @include('admin.packages.partials.form_fields')
+                        @include('admin.itineraries.partials.form_fields')
                     </form>
                 </div>
 

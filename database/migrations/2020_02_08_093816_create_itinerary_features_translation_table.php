@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateItineraryFeaturesTable extends Migration
+class CreateItineraryFeaturesTranslationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateItineraryFeaturesTable extends Migration
      */
     public function up()
     {
-        Schema::create('itinerary_features', function (Blueprint $table) {
+        Schema::create('itinerary_features_translations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('icon');
+            $table->integer('itineraries_feature_id');
+            $table->string('locale');
+            $table->string('text');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateItineraryFeaturesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('itinerary_features');
+        Schema::dropIfExists('itinerary_features_translations');
     }
 }

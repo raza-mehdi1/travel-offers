@@ -27,17 +27,24 @@
                      with font-awesome or any other icon font library -->
 {{--                <li class="nav-item has-treeview">--}}
                 <li class="nav-item">
+                    <a href="{{route('itinerary_features.index')}}" class="nav-link">
+                        <i class="nav-icon fa fa-key"></i> &nbsp;
+                        <p>  {{__('general.itinerary_features')}}</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('itineraries.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-road"></i> &nbsp;
+                        <p>  {{__('general.itineraries')}}</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{route('packages.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-box"></i> &nbsp;
                         <p>  {{__('general.packages')}}</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{route('itineraries.index')}}" class="nav-link">
-                        <i class="nav-icon fas fa-box"></i> &nbsp;
-                        <p>  {{__('general.itineraries')}}</p>
-                    </a>
-                </li>
+
 {{--                    <ul class="nav nav-treeview">--}}
 {{--                        <li class="nav-item">--}}
 {{--                            <a href="../../index.html" class="nav-link">--}}

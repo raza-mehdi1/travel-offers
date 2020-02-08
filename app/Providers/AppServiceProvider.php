@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 use App\Http\Controllers\ItinerariesController;
+use App\Http\Controllers\ItineraryFeaturesController;
 use App\Http\Controllers\PackagesController;
 use App\Interfaces\ModelInterface;
+use App\ItinerariesFeature;
 use App\Itinerary;
 use App\Package;
 use Illuminate\Support\ServiceProvider;
@@ -38,6 +40,12 @@ class AppServiceProvider extends ServiceProvider
             ->needs(ModelInterface::class)
             ->give(function () {
                 return new Itinerary();
+            });
+
+        $this->app->when(ItineraryFeaturesController::class)
+            ->needs(ModelInterface::class)
+            ->give(function () {
+                return new ItinerariesFeature();
             });
     }
 }

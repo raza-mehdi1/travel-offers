@@ -12,6 +12,8 @@ class Package extends Model implements ModelInterface, TranslatableContract
 {
     use Translatable;
 
+    protected $guarded = ['_token','locale', '_method'];
+
     public $translatedAttributes = ['title', 'tag_line', 'description'];
     protected $fillable = ['trip_start_date_time', 'trip_end_date_time', 'price_per_head'];
 

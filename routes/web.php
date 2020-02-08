@@ -26,4 +26,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('packages', 'PackagesController');
     Route::resource('itineraries', 'ItinerariesController');
+    Route::resource('itinerary_features', 'ItineraryFeaturesController');
+
 });
