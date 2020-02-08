@@ -25,5 +25,6 @@ return [
     'itinerary_features'=>'yol xüsusiyyətləri',
     'text'=>'mətn',
     'icon'=>'Nişan',
+    'features'=>'Xüsusiyyətləri'
 
 ];

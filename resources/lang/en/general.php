@@ -25,5 +25,6 @@ return [
     'itinerary_features'=>'Itinerary Features',
     'text'=>'Text',
     'icon'=>'Icon',
+    'features'=>'Features'
 
 ];

@@ -30,6 +30,7 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
+                @include('admin.layouts.partials.message')
                 <!-- SELECT2 EXAMPLE -->
                 <div class="card card-default">
                     <div class="card-header">
@@ -62,10 +63,10 @@
                                                 <a class="btn btn-primary" href="{{route('itinerary_features.edit', $itinerary_feature->id)}}">Edit</a>
                                             </td>
                                             <td>
-                                                <form action="{{route('itinerary_features.destroy', $itinerary_feature->id)}}" id="formPackage{{$itinerary_feature->id}}" method="post">
+                                                <form action="{{route('itinerary_features.destroy', $itinerary_feature->id)}}" id="delete{{$itinerary_feature->id}}" method="post">
                                                     @csrf
                                                     @method('delete')
-                                                    <button type="button" class="btn btn-danger" onclick='confirmDelete("{{$itinerary_feature->id}}", "Itinerary")'>Delete</button>
+                                                    <button type="button" class="btn btn-danger" onclick='confirmDelete("{{$itinerary_feature->id}}", "Itinerary Feature")'>Delete</button>
                                                 </form>
                                             </td>
                                         </tr>

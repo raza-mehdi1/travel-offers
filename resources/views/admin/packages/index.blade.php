@@ -30,6 +30,7 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
+                @include('admin.layouts.partials.message')
                 <!-- SELECT2 EXAMPLE -->
                 <div class="card card-default">
                     <div class="card-header">
@@ -62,7 +63,7 @@
                                                 <a class="btn btn-primary" href="{{route('packages.edit', $package->id)}}">Edit</a>
                                             </td>
                                             <td>
-                                                <form action="{{route('packages.destroy', $package->id)}}" id="formPackage{{$package->id}}" method="post">
+                                                <form action="{{route('packages.destroy', $package->id)}}" id="delete{{$package->id}}" method="post">
                                                     @csrf
                                                     @method('delete')
                                                     <button type="button" class="btn btn-danger" onclick='confirmDelete("{{$package->id}}", "Package")'>Delete</button>

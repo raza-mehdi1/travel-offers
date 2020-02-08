@@ -59,7 +59,7 @@
                     <!-- /.card-header -->
                     <form action="{{route('itineraries.store')}}" method="post" autocomplete="off">
                         @csrf
-                        @include('admin.itineraries.partials.form_fields')
+                        @include('admin.itineraries.partials.form_fields', ['itinerary_features'=>$itinerary_features])
                     </form>
                 </div>
 
@@ -101,7 +101,7 @@
 
 
         //Initialize Select2 Elements
-        // $('.select2').select2()
+        $('.select2').select2()
         //
         // //Initialize Select2 Elements
         // $('.select2bs4').select2({

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateItinerary;
 use App\Interfaces\ModelInterface;
+use App\ItinerariesFeature;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateItinerary;
 
@@ -33,7 +34,8 @@ class ItinerariesController extends Controller
      */
     public function create()
     {
-        return view('admin.itineraries.create');
+        $itinerary_features = ItinerariesFeature::all();
+        return view('admin.itineraries.create', compact('itinerary_features'));
     }
 
     /**
@@ -44,9 +46,9 @@ class ItinerariesController extends Controller
      */
     public function store(CreateItinerary $request)
     {
-        $package = $this->model->create($request->except('_token','locale'));
+        $itinerary = $this->model->create($request->except('_token','locale'));
 
-        if($package){
+        if($itinerary){
             $request->session()->flash('status',  'success');
             $request->session()->flash('message', 'New Itinerary was created successful!');
         } else {
@@ -76,8 +78,17 @@ class ItinerariesController extends Controller
      */
     public function edit($id)
     {
-        $itinerary = $this->model->find($id);
-        return view('admin.itineraries.edit', compact('itinerary'));
+        $itinerary = $this->model->with('itinerary_features')->find($id);
+
+        if(!$itinerary){
+            request()->session()->flash('status',  'error');
+            request()->session()->flash('message', 'Requested Itinerary not found!');
+            return redirect()->route('itineraries.index');
+        }
+
+
+        $itinerary_features = ItinerariesFeature::all();
+        return view('admin.itineraries.edit', compact('itinerary', 'itinerary_features'));
     }
 
     /**
@@ -110,9 +121,9 @@ class ItinerariesController extends Controller
      */
     public function destroy($id)
     {
-        $package = $this->model->find($id);
+        $itinerary = $this->model->find($id);
 
-        if($package->delete()){
+        if($itinerary->delete()){
             request()->session()->flash('status', 'success');
             request()->session()->flash('message', 'Itinerary deleted successfully!');
         } else {

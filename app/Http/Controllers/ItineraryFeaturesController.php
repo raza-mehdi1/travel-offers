@@ -74,7 +74,15 @@ class ItineraryFeaturesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $itinerary_feature = $this->model->find($id);
+
+        if(!$itinerary_feature) {
+            request()->session()->flash('status',  'error');
+            request()->session()->flash('message', 'Requested Itinerary Feature not found!');
+            return redirect()->route('itinerary_features.index');
+        }
+
+        return view('admin.itinerary_features.edit', compact('itinerary_feature'));
     }
 
     /**
@@ -86,7 +94,17 @@ class ItineraryFeaturesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $itinerary_feature = $this->model->create($request->all());
+
+        if($itinerary_feature){
+            $request->session()->flash('status',  'success');
+            $request->session()->flash('message', 'Itinerary feature was updated successful!');
+        } else {
+            $request->session()->flash('status',  'danger');
+            $request->session()->flash('message', 'Oops! Something went wrong...');
+        }
+
+        return redirect()->back();
     }
 
     /**
@@ -97,6 +115,16 @@ class ItineraryFeaturesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $itinerary_feature = $this->model->find($id);
+
+        if($itinerary_feature->delete()){
+            request()->session()->flash('status', 'success');
+            request()->session()->flash('message', 'Itinerary Feature deleted successfully!');
+        } else {
+            request()->session()->flash('status', 'danger');
+            request()->session()->flash('message', 'Oops! Something went wrong...');
+        }
+
+        return redirect()->back();
     }
 }

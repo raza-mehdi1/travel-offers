@@ -8,6 +8,7 @@ use App\Http\Controllers\PackagesController;
 use App\Interfaces\ModelInterface;
 use App\ItinerariesFeature;
 use App\Itinerary;
+use App\Observers\ItineraryObserver;
 use App\Package;
 use Illuminate\Support\ServiceProvider;
 
@@ -47,5 +48,7 @@ class AppServiceProvider extends ServiceProvider
             ->give(function () {
                 return new ItinerariesFeature();
             });
+
+        Itinerary::observe(ItineraryObserver::class);
     }
 }

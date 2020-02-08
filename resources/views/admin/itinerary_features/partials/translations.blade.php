@@ -15,7 +15,7 @@
 
                     <div class="form-group  {{ $errors->has($locale->locale.'.text') ? 'has-error' : '' }}">
                         <label>{{ __('general.text') }} *</label>
-                        <input class="form-control" name="{{$locale->locale}}[text]" value="{{ @$itinerary ? $itinerary->translate($locale->locale)->text : old($locale->locale.'.text' ,optional($locale->locale)->{'text:'.$locale->locale}) }}" placeholder="@lang('general.text')">
+                        <input class="form-control" name="{{$locale->locale}}[text]" value="{{ @$itinerary_feature ? $itinerary_feature->translate($locale->locale)->text : old($locale->locale.'.text' ,optional($locale->locale)->{'text:'.$locale->locale}) }}" placeholder="@lang('general.text')">
                     </div>
 
                 </div>

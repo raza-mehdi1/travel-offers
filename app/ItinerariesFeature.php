@@ -17,4 +17,8 @@ class ItinerariesFeature extends Model implements ModelInterface, TranslatableCo
     public $translatedAttributes = ['text'];
     public $fillable = ['icon'];
 
+    public function itineraries(){
+        return $this->belongsToMany(Itinerary::class, 'itinerary_feature_pivot','itinerary_feature_id','itinerary_id');
+    }
+
 }

@@ -58,10 +58,10 @@
                     </div>
 
                     <!-- /.card-header -->
-                    <form action="{{route('itinerary_features.update', $itinerary_features->id)}}" method="post" autocomplete="off">
+                    <form action="{{route('itinerary_features.update', $itinerary_feature->id)}}" method="post" autocomplete="off">
                         @csrf
                         @method('PATCH')
-                        @include('admin.itinerary_features.partials.form_fields', ['itinerary_features' => $itinerary_features])
+                        @include('admin.itinerary_features.partials.form_fields', ['itinerary_feature' => $itinerary_feature])
                     </form>
                 </div>
 
