@@ -29,6 +29,7 @@ return [
     'key'=>'açar',
     'value'=>'dəyəri',
     'includes'=>'Paket daxildir',
-    'not-includes'=>'Paket daxil deyil'
+    'not-includes'=>'Paket daxil deyil',
+    'logout'=>'Çıxış'
 
 ];

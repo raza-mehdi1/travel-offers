@@ -29,6 +29,7 @@ return [
     'key'=>'Key',
     'value'=>'Value',
     'includes'=>'Package Includes',
-    'not-includes'=>'Package Not Includes'
+    'not-includes'=>'Package Not Includes',
+    'logout'=>'Logout'
 
 ];
