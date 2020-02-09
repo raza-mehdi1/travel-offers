@@ -15,11 +15,11 @@
 
                     <div class="form-group  {{ $errors->has($locale->locale.'.title') ? 'has-error' : '' }}">
                         <label>{{ __('general.title') }} *</label>
-                        <input class="form-control" name="{{$locale->locale}}[title]" value="{{ @$addon ? $addon->translate($locale->locale)->title : old($locale->locale.'.title' ,optional($locale->locale)->{'title:'.$locale->locale}) }}" placeholder="@lang('general.title')">
+                        <input class="form-control" name="{{$locale->locale}}[title]" value="{{ @$include ? $include->translate($locale->locale)->title : old($locale->locale.'.title' ,optional($locale->locale)->{'title:'.$locale->locale}) }}" placeholder="@lang('general.title')">
                     </div>
                     <div class="form-group  {{ $errors->has($locale->locale.'.description') ? 'has-error' : '' }}">
                         <label>{{ __('general.description') }} *</label>
-                        <input class="form-control" name="{{$locale->locale}}[description]" value="{{ @$addon ? $addon->translate($locale->locale)->description : old($locale->locale.'.description' ,optional($locale->locale)->{'description:'.$locale->locale}) }}" placeholder="@lang('general.description')">
+                        <input class="form-control" name="{{$locale->locale}}[description]" value="{{ @$include ? $include->translate($locale->locale)->description : old($locale->locale.'.description' ,optional($locale->locale)->{'description:'.$locale->locale}) }}" placeholder="@lang('general.description')">
                     </div>
 
                 </div>

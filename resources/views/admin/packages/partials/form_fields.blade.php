@@ -46,6 +46,48 @@
             </select>
         </div>
 
+        <div class="form-group  {{ $errors->has('include_addon_ids') ? 'has-error' : '' }}">
+            <label>{{ __('general.include_addons') }} *</label>
+            <select class="form-control select2" multiple="multiple" name="include_addon_ids[]">
+                @foreach($addons as $addon)
+                    <option value="{{$addon->id}}"
+                        @include('admin.layouts.partials.select-option-decision',
+                                    [
+                                        'value'     =>  $addon->id,
+                                        'old'       =>  old('include_addon_ids'),
+                                        'editPageModelValuesArray'
+                                                    =>
+                                        !is_null(@$package) ? @$package->included_addons()->pluck('addon_id')->toArray() : []
+                                    ]
+                                )
+                    >
+                        {{$addon->title}}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="form-group  {{ $errors->has('exclude_addon_ids') ? 'has-error' : '' }}">
+            <label>{{ __('general.exclude_addons') }} *</label>
+            <select class="form-control select2" multiple="multiple" name="exclude_addon_ids[]">
+                @foreach($addons as $addon)
+                    <option value="{{$addon->id}}"
+                        @include('admin.layouts.partials.select-option-decision',
+                                    [
+                                        'value'     =>  $addon->id,
+                                        'old'       =>  old('exclude_addon_ids'),
+                                        'editPageModelValuesArray'
+                                                    =>
+                                        !is_null(@$package) ? @$package->excluded_addons()->pluck('addon_id')->toArray() : []
+                                    ]
+                                )
+                    >
+                        {{$addon->title}}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+
         <div class="form-group  {{ $errors->has('image_ids') ? 'has-error' : '' }}">
             <label>{{ __('general.images') }} *</label>
             <select id="imagepicker" class="form-control image-picker show-html" name="image_ids[]" multiple="multiple">

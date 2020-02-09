@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Addon;
 use App\Feature;
+use App\Http\Controllers\AddonsController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\IncludesController;
@@ -40,6 +42,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Itinerary::observe(ItineraryObserver::class);
+        Package::observe(PackageObserver::class);
+
         $this->app->when(PackagesController::class)
             ->needs(ModelInterface::class)
             ->give(function () {
@@ -64,16 +69,22 @@ class AppServiceProvider extends ServiceProvider
                 return new Feature();
             });
 
-        $this->app->when(IncludesController::class)
-            ->needs(ModelInterface::class)
-            ->give(function () {
-                return new PackageInclude();
-            });
+//        $this->app->when(IncludesController::class)
+//            ->needs(ModelInterface::class)
+//            ->give(function () {
+//                return new PackageInclude();
+//            });
+//
+//        $this->app->when( NotIncludesController::class)
+//            ->needs(ModelInterface::class)
+//            ->give(function () {
+//                return new PackageNotInclude();
+//            });
 
-        $this->app->when( NotIncludesController::class)
+        $this->app->when(AddonsController::class)
             ->needs(ModelInterface::class)
             ->give(function () {
-                return new PackageNotInclude();
+                return new Addon();
             });
 
         $this->app->when( ImagesController::class)
@@ -82,7 +93,5 @@ class AppServiceProvider extends ServiceProvider
                 return new Image();
             });
 
-        Itinerary::observe(ItineraryObserver::class);
-        Package::observe(PackageObserver::class);
     }
 }

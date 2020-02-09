@@ -2,18 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Addon;
-use App\Feature;
-use App\Http\Requests\CreatePackage;
-use App\Http\Requests\UpdatePackage;
-use App\Image;
+use App\Http\Requests\CreateAddons;
+use App\Http\Requests\UpdateAddons;
 use App\Interfaces\ModelInterface;
-use App\Itinerary;
-use App\Package;
-use App\PackageInclude;
+use App\ItinerariesFeature;
 use Illuminate\Http\Request;
 
-class PackagesController extends Controller
+class AddonsController extends Controller
 {
     protected $model;
 
@@ -21,7 +16,6 @@ class PackagesController extends Controller
     {
         $this->model = $model;
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -29,8 +23,8 @@ class PackagesController extends Controller
      */
     public function index()
     {
-        $packages = $this->model->paginate(10);
-        return view('admin.packages.index', compact('packages'));
+        $addons = $this->model->paginate(10);
+        return view('admin.addons.index', compact('addons'));
     }
 
     /**
@@ -40,29 +34,22 @@ class PackagesController extends Controller
      */
     public function create()
     {
-        $itineraries        = Itinerary::all();
-        $packageIncludes    = PackageInclude::all();
-        $images             = Image::all();
-        $features           = Feature::all();
-        $addons             = Addon::all();
-        return view('admin.packages.create',
-            compact('itineraries', 'packageIncludes', 'features', 'images', 'addons')
-        );
+        return view('admin.addons.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  CreatePackage  $request
+     * @param  CreateAddons $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreatePackage $request)
+    public function store(CreateAddons $request)
     {
-        $package = $this->model->create($request->all());
+        $addon = $this->model->create($request->all());
 
-        if($package){
+        if($addon){
             $request->session()->flash('status',  'success');
-            $request->session()->flash('message', 'New Package was created successful!');
+            $request->session()->flash('message', 'New Addon was created successful!');
         } else {
             $request->session()->flash('status',  'danger');
             $request->session()->flash('message', 'Oops! Something went wrong...');
@@ -90,33 +77,31 @@ class PackagesController extends Controller
      */
     public function edit($id)
     {
-        $package = $this->model->with('images')->find($id);
-        $itineraries        = Itinerary::all();
-        $packageIncludes    = PackageInclude::all();
-        $images             = Image::all();
-        $features           = Feature::all();
-        $addons           = Addon::all();
-        return view('admin.packages.edit',
-            compact('package','itineraries', 'packageIncludes', 'features', 'images', 'addons')
-        );
+        $addon = $this->model->find($id);
+
+        if(!$addon){
+            request()->session()->flash('status',  'error');
+            request()->session()->flash('message', 'Requested Addon not found!');
+            return redirect()->route('addons.index');
+        }
+
+        return view('admin.addons.edit', compact('addon'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  UpdatePackage  $request
+     * @param  UpdateAddons $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePackage $request, $id)
+    public function update(UpdateAddons $request, $id)
     {
-        $package = $this->model->find($id);
+        $addon = $this->model->find($id);
 
-        $updated = $package->update($request->all());
-
-        if($updated){
+        if($addon->update($request->all())){
             $request->session()->flash('status', 'success');
-            $request->session()->flash('message', 'Package updated successfully!');
+            $request->session()->flash('message', 'Addon updated successfully!');
         } else {
             $request->session()->flash('status', 'danger');
             $request->session()->flash('message', 'Oops! Something went wrong...');
@@ -133,11 +118,11 @@ class PackagesController extends Controller
      */
     public function destroy($id)
     {
-        $package = $this->model->find($id);
+        $addon = $this->model->find($id);
 
-        if($package->delete()){
+        if($addon->delete()){
             request()->session()->flash('status', 'success');
-            request()->session()->flash('message', 'Package deleted successfully!');
+            request()->session()->flash('message', 'Addon deleted successfully!');
         } else {
             request()->session()->flash('status', 'danger');
             request()->session()->flash('message', 'Oops! Something went wrong...');

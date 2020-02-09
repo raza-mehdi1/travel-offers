@@ -9,11 +9,35 @@ class PackageObserver
     private function sync($model){
         $model->images()->sync(request()->get('image_ids'));
         $model->itineraries()->sync(request()->get('itinerary_ids'));
+
+        if(request()->has('include_addon_ids')){
+            $include_addon_ids = [];
+            foreach (request()->get('include_addon_ids') as $include_addon_id) {
+                $include_addon_ids[$include_addon_id] = ['is_included' => true];
+            }
+            $model->included_addons()->sync($include_addon_ids);
+        }else{
+            $model->included_addons()->detach();
+        }
+
+        if(request()->has('exclude_addon_ids')) {
+            $exclude_addon_ids = [];
+            foreach (request()->get('exclude_addon_ids') as $exclude_addon_id) {
+                $exclude_addon_ids[$exclude_addon_id] = ['is_included' => false];
+            }
+            $model->excluded_addons()->sync($exclude_addon_ids);
+        }else{
+            $model->excluded_addons()->detach();
+        }
+
+
     }
 
     private function detach($model){
         $model->images()->detach();
         $model->itineraries()->detach();
+        $model->excluded_addons()->detach();
+        $model->included_addons()->detach();
     }
 
     /**

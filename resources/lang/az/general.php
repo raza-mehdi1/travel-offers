@@ -33,5 +33,10 @@ return [
     'logout'=>'Çıxış',
     'image'=>'Şəkil',
     'images'=>'Şəkillər',
+    'addons'=>'Əlavələr',
+    'addon'=>'Əlavə',
+    'include_addons'=>'Əlavələri daxil edin',
+    'exclude_addons'=>'Əlavələri xaric edin',
+
 
 ];

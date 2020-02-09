@@ -41,12 +41,27 @@ class Package extends Model implements ModelInterface, TranslatableContract
         return $this->morphToMany(Image::class, 'imagable');
     }
 
+    /**
+     * Get all of the features for the package.
+     */
     public function features(){
         return $this->belongsToMany(Feature::class, 'feature_package_pivot', 'package_id','feature_id');
     }
 
-    public function package_include(){
-        return $this->belongsToMany(PackageInclude::class, 'package_include_pivot', 'package_id','package_include_id');
+    /**
+     * Get all of the included-add-ons for the package.
+     */
+    public function included_addons(){
+        return $this->belongsToMany(Addon::class, 'package_addon_pivot', 'package_id','addon_id')
+            ->wherePivot('is_included', true);
+    }
+
+    /**
+     * Get all of the excluded-add-ons for the package.
+     */
+    public function excluded_addons(){
+        return $this->belongsToMany(Addon::class, 'package_addon_pivot', 'package_id','addon_id')
+            ->wherePivot('is_included', false);
     }
 
     public function itineraries(){

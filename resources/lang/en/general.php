@@ -33,5 +33,9 @@ return [
     'logout'=>'Logout',
     'image'=>'Image',
     'images'=>'Images',
+    'addons'=>'Addons',
+    'addon'=>'Addon',
+    'include_addons'=>'Include Addons',
+    'exclude_addons'=>'Exclude Addons',
 
 ];
