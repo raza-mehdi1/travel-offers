@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateItineraryFeature;
+use App\Http\Requests\UpdateItineraryFeature;
 use App\Interfaces\ModelInterface;
 use Illuminate\Http\Request;
 
@@ -37,10 +39,10 @@ class ItineraryFeaturesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  CreateItineraryFeature  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateItineraryFeature $request)
     {
         $itinerary_feature = $this->model->create($request->all());
 
@@ -88,11 +90,11 @@ class ItineraryFeaturesController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  UpdateItineraryFeature  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateItineraryFeature $request, $id)
     {
         $itinerary_feature = $this->model->create($request->all());
 
