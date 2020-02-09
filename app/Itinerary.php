@@ -20,4 +20,11 @@ class Itinerary extends Model implements ModelInterface, TranslatableContract
     public function itinerary_features(){
         return $this->belongsToMany(ItinerariesFeature::class, 'itinerary_feature_pivot','itinerary_id','itinerary_feature_id');
     }
+
+
+    public function packages(){
+        return $this->belongsToMany(Package::class, 'itinerary_package_pivot','itinerary_id', 'package_id');
+    }
+
+
 }

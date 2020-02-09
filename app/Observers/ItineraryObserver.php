@@ -6,6 +6,14 @@ use App\Itinerary;
 
 class ItineraryObserver
 {
+    private function sync($model){
+        $model->itinerary_features()->sync(request()->get('itinerary_feature_ids'));
+    }
+
+    private function detach($model){
+        $model->itinerary_features()->detach();
+        $model->packages()->detach();
+    }
     /**
      * Handle the itinerary "created" event.
      *
@@ -14,8 +22,7 @@ class ItineraryObserver
      */
     public function created(Itinerary $itinerary)
     {
-        $itinerary_feature_ids = request()->get('itinerary_feature_ids');
-        $itinerary->itinerary_features()->sync($itinerary_feature_ids);
+        $this->sync($itinerary);
     }
 
     /**
@@ -26,7 +33,18 @@ class ItineraryObserver
      */
     public function updated(Itinerary $itinerary)
     {
-        //
+        $this->sync($itinerary);
+    }
+
+    /**
+     * Handle the itinerary "deleting" event.
+     *
+     * @param  \App\Itinerary  $itinerary
+     * @return void
+     */
+    public function deleting(Itinerary $itinerary)
+    {
+        $this->detach($itinerary);
     }
 
     /**

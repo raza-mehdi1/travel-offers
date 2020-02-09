@@ -15,6 +15,7 @@
     <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
     <script src="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
+    <link rel="stylesheet" href="/image-picker/image-picker.css">
     <style>
         .pull-right{
             float: right;
@@ -77,8 +78,9 @@
 
 
 @section('scripts')
-
+<script src="/image-picker/image-picker.js"></script>
 <script>
+
     $(function () {
 
         $('#trip_start_date_time').datetimepicker(
@@ -101,8 +103,17 @@
 
 
         //Initialize Select2 Elements
-        // $('.select2').select2()
+        $('.select2').select2()
         //
+        $("#imagepicker").imagepicker();
+        // $("select[name='image_ids']").select2({
+        //     templateResult: function (image) {
+        //         console.log(image.element);
+        //         return $(
+        //             "<span><img src='"+image.element.value+"' class='img-flag' />" + image.element.value + "</span>"
+        //         );;
+        //     }
+        // });
         // //Initialize Select2 Elements
         // $('.select2bs4').select2({
         //     theme: 'bootstrap4'

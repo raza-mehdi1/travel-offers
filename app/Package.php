@@ -40,4 +40,18 @@ class Package extends Model implements ModelInterface, TranslatableContract
     {
         return $this->morphToMany(Image::class, 'imagable');
     }
+
+    public function features(){
+        return $this->belongsToMany(Feature::class, 'feature_package_pivot', 'package_id','feature_id');
+    }
+
+    public function package_include(){
+        return $this->belongsToMany(PackageInclude::class, 'package_include_pivot', 'package_id','package_include_id');
+    }
+
+    public function itineraries(){
+        return $this->belongsToMany(Itinerary::class, 'itinerary_package_pivot', 'package_id','itinerary_id');
+    }
+
+
 }

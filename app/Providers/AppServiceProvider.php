@@ -15,6 +15,7 @@ use App\Interfaces\ModelInterface;
 use App\ItinerariesFeature;
 use App\Itinerary;
 use App\Observers\ItineraryObserver;
+use App\Observers\PackageObserver;
 use App\Package;
 use App\PackageInclude;
 use App\PackageNotInclude;
@@ -82,5 +83,6 @@ class AppServiceProvider extends ServiceProvider
             });
 
         Itinerary::observe(ItineraryObserver::class);
+        Package::observe(PackageObserver::class);
     }
 }

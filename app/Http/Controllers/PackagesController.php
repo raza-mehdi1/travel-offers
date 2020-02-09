@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Feature;
 use App\Http\Requests\CreatePackage;
 use App\Http\Requests\UpdatePackage;
+use App\Image;
 use App\Interfaces\ModelInterface;
+use App\Itinerary;
 use App\Package;
+use App\PackageInclude;
 use Illuminate\Http\Request;
 
 class PackagesController extends Controller
@@ -35,7 +39,13 @@ class PackagesController extends Controller
      */
     public function create()
     {
-        return view('admin.packages.create');
+        $itineraries        = Itinerary::all();
+        $packageIncludes    = PackageInclude::all();
+        $images             = Image::all();
+        $features           = Feature::all();
+        return view('admin.packages.create',
+            compact('itineraries', 'packageIncludes', 'features', 'images')
+        );
     }
 
     /**
@@ -78,8 +88,14 @@ class PackagesController extends Controller
      */
     public function edit($id)
     {
-        $package = $this->model->find($id);
-        return view('admin.packages.edit', compact('package'));
+        $package = $this->model->with('images')->find($id);
+        $itineraries        = Itinerary::all();
+        $packageIncludes    = PackageInclude::all();
+        $images             = Image::all();
+        $features           = Feature::all();
+        return view('admin.packages.edit',
+            compact('package','itineraries', 'packageIncludes', 'features', 'images')
+        );
     }
 
     /**
@@ -93,7 +109,9 @@ class PackagesController extends Controller
     {
         $package = $this->model->find($id);
 
-        if($package->update($request->all())){
+        $updated = $package->update($request->all());
+
+        if($updated){
             $request->session()->flash('status', 'success');
             $request->session()->flash('message', 'Package updated successfully!');
         } else {

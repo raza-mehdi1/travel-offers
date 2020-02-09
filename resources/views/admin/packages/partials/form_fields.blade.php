@@ -25,6 +25,50 @@
             <input class="form-control" name="price_per_head" value="{{ @$package ? $package->price_per_head : old('price_per_head') }}" placeholder="@lang('general.price_per_head')">
         </div>
 
+        <div class="form-group  {{ $errors->has('itinerary_ids') ? 'has-error' : '' }}">
+            <label>{{ __('general.itineraries') }} *</label>
+            <select class="form-control select2" multiple="multiple" name="itinerary_ids[]">
+                @foreach($itineraries as $itinerary)
+                    <option value="{{$itinerary->id}}"
+                        @include('admin.layouts.partials.select-option-decision',
+                                    [
+                                        'value'     =>  $itinerary->id,
+                                        'old'       =>  old('itinerary_ids'),
+                                        'editPageModelValuesArray'
+                                                    =>
+                                        !is_null(@$package) ? @$package->itineraries()->pluck('itinerary_id')->toArray() : []
+                                    ]
+                                )
+                    >
+                        {{$itinerary->title}}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="form-group  {{ $errors->has('image_ids') ? 'has-error' : '' }}">
+            <label>{{ __('general.images') }} *</label>
+            <select id="imagepicker" class="form-control image-picker show-html" name="image_ids[]" multiple="multiple">
+                @foreach($images as $image)
+                    <option data-img-src="{{$image->storage_path}}"
+                            data-img-class="image-size-in-image-picker"
+                            value="{{$image->id}}"
+                            @include('admin.layouts.partials.select-option-decision',
+                                [
+                                    'value'     =>  $image->id,
+                                    'old'       =>  old('image_ids'),
+                                    'editPageModelValuesArray'
+                                                =>
+                                    !is_null(@$package) ? @$package->images()->pluck('image_id')->toArray() : []
+                                ]
+                            )
+                    >
+                        {{asset($image->path)}}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+
     @include('admin.packages.partials.translations')
     <!-- ./card -->
         <button class="btn btn-primary btn-block">{{__('general.save')}}</button>

@@ -18,4 +18,8 @@ class Image extends Model implements ModelInterface
     {
         return $this->morphedByMany(Package::class, 'imagable');
     }
+
+    public function getStoragePathAttribute($value){
+        return asset($value);
+    }
 }

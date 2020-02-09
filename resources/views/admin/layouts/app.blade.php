@@ -38,6 +38,9 @@
         textarea{
             height: 200px !important;
         }
+        .image-size-in-image-picker{
+            height: 150px;
+        }
     </style>
     @yield('styles')
 
@@ -102,7 +105,7 @@
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.value) {
-                $('#form'+modelType+id).submit();
+                $('#delete'+id).submit();
             }
         })
 
