@@ -69,18 +69,6 @@ class AppServiceProvider extends ServiceProvider
                 return new Feature();
             });
 
-//        $this->app->when(IncludesController::class)
-//            ->needs(ModelInterface::class)
-//            ->give(function () {
-//                return new PackageInclude();
-//            });
-//
-//        $this->app->when( NotIncludesController::class)
-//            ->needs(ModelInterface::class)
-//            ->give(function () {
-//                return new PackageNotInclude();
-//            });
-
         $this->app->when(AddonsController::class)
             ->needs(ModelInterface::class)
             ->give(function () {

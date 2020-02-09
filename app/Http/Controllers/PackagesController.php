@@ -10,7 +10,6 @@ use App\Image;
 use App\Interfaces\ModelInterface;
 use App\Itinerary;
 use App\Package;
-use App\PackageInclude;
 use Illuminate\Http\Request;
 
 class PackagesController extends Controller
@@ -41,12 +40,11 @@ class PackagesController extends Controller
     public function create()
     {
         $itineraries        = Itinerary::all();
-        $packageIncludes    = PackageInclude::all();
         $images             = Image::all();
         $features           = Feature::all();
         $addons             = Addon::all();
         return view('admin.packages.create',
-            compact('itineraries', 'packageIncludes', 'features', 'images', 'addons')
+            compact('itineraries', 'features', 'images', 'addons')
         );
     }
 
@@ -92,12 +90,11 @@ class PackagesController extends Controller
     {
         $package = $this->model->with('images')->find($id);
         $itineraries        = Itinerary::all();
-        $packageIncludes    = PackageInclude::all();
         $images             = Image::all();
         $features           = Feature::all();
         $addons           = Addon::all();
         return view('admin.packages.edit',
-            compact('package','itineraries', 'packageIncludes', 'features', 'images', 'addons')
+            compact('package','itineraries', 'features', 'images', 'addons')
         );
     }
 
