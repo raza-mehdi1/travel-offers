@@ -25,6 +25,10 @@ return [
     'itinerary_features'=>'yol xüsusiyyətləri',
     'text'=>'mətn',
     'icon'=>'Nişan',
-    'features'=>'Xüsusiyyətləri'
+    'features'=>'Xüsusiyyətləri',
+    'key'=>'açar',
+    'value'=>'dəyəri',
+    'includes'=>'Paket daxildir',
+    'not-includes'=>'Paket daxil deyil'
 
 ];

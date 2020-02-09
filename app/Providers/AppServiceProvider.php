@@ -2,14 +2,20 @@
 
 namespace App\Providers;
 
+use App\Feature;
+use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\IncludesController;
 use App\Http\Controllers\ItinerariesController;
 use App\Http\Controllers\ItineraryFeaturesController;
+use App\Http\Controllers\NotIncludesController;
 use App\Http\Controllers\PackagesController;
 use App\Interfaces\ModelInterface;
 use App\ItinerariesFeature;
 use App\Itinerary;
 use App\Observers\ItineraryObserver;
 use App\Package;
+use App\PackageInclude;
+use App\PackageNotInclude;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -47,6 +53,24 @@ class AppServiceProvider extends ServiceProvider
             ->needs(ModelInterface::class)
             ->give(function () {
                 return new ItinerariesFeature();
+            });
+
+        $this->app->when(FeatureController::class)
+            ->needs(ModelInterface::class)
+            ->give(function () {
+                return new Feature();
+            });
+
+        $this->app->when(IncludesController::class)
+            ->needs(ModelInterface::class)
+            ->give(function () {
+                return new PackageInclude();
+            });
+
+        $this->app->when( NotIncludesController::class)
+            ->needs(ModelInterface::class)
+            ->give(function () {
+                return new PackageNotInclude();
             });
 
         Itinerary::observe(ItineraryObserver::class);

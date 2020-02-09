@@ -39,6 +39,24 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{route('features.index')}}" class="nav-link">
+                        <i class="nav-icon fa fa-star"></i> &nbsp;
+                        <p>  {{__('general.features')}}</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('includes.index')}}" class="nav-link">
+                        <i class="nav-icon fa fa-check-circle"></i> &nbsp;
+                        <p>  {{__('general.includes')}}</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('not-includes.index')}}" class="nav-link">
+                        <i class="nav-icon fa fa-times-circle"></i> &nbsp;
+                        <p>  {{__('general.not-includes')}}</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{route('packages.index')}}" class="nav-link">
                         <i class="nav-icon fas fa-box"></i> &nbsp;
                         <p>  {{__('general.packages')}}</p>

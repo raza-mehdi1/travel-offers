@@ -15,7 +15,6 @@ class CreatePackageIncludesTable extends Migration
     {
         Schema::create('package_includes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
             $table->timestamps();
         });
     }

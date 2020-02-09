@@ -27,5 +27,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('packages', 'PackagesController');
     Route::resource('itineraries', 'ItinerariesController');
     Route::resource('itinerary_features', 'ItineraryFeaturesController');
+    Route::resource('features', 'FeatureController');
+    Route::resource('includes', 'IncludesController');
+    Route::resource('not-includes', 'NotIncludesController');
 
 });

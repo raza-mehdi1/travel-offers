@@ -15,7 +15,6 @@ class CreatePackageNotIncludesTable extends Migration
     {
         Schema::create('package_not_includes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
             $table->timestamps();
         });
     }

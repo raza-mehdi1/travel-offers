@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateFeature;
-use App\Http\Requests\UpdateFeature;
+use App\Http\Requests\UpdatePackageIncludes;
 use App\Interfaces\ModelInterface;
+use App\ItinerariesFeature;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreatePackageIncludes;
 
-class FeatureController extends Controller
+class IncludesController extends Controller
 {
-
     protected $model;
 
     public function __construct(ModelInterface $model)
@@ -23,8 +23,8 @@ class FeatureController extends Controller
      */
     public function index()
     {
-        $features = $this->model->paginate(10);
-        return view('admin.features.index', compact('features'));
+        $includes = $this->model->paginate(10);
+        return view('admin.includes.index', compact('includes'));
     }
 
     /**
@@ -34,22 +34,22 @@ class FeatureController extends Controller
      */
     public function create()
     {
-        return view('admin.features.create');
+        return view('admin.includes.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  CreateFeature  $request
+     * @param  CreatePackageIncludes $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateFeature $request)
+    public function store(CreatePackageIncludes $request)
     {
-        $feature = $this->model->create($request->all());
+        $include = $this->model->create($request->all());
 
-        if($feature){
+        if($include){
             $request->session()->flash('status',  'success');
-            $request->session()->flash('message', 'New Feature was created successful!');
+            $request->session()->flash('message', 'New Include was created successful!');
         } else {
             $request->session()->flash('status',  'danger');
             $request->session()->flash('message', 'Oops! Something went wrong...');
@@ -77,33 +77,33 @@ class FeatureController extends Controller
      */
     public function edit($id)
     {
-        $feature = $this->model->find($id);
+        $include = $this->model->find($id);
 
-        if(!$feature) {
+        if(!$include){
             request()->session()->flash('status',  'error');
-            request()->session()->flash('message', 'Requested Feature not found!');
-            return redirect()->route('features.index');
+            request()->session()->flash('message', 'Requested Include not found!');
+            return redirect()->route('includes.index');
         }
 
-        return view('admin.features.edit', compact('feature'));
+        return view('admin.includes.edit', compact('include'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  UpdateFeature  $request
+     * @param  UpdatePackageIncludes $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateFeature $request, $id)
+    public function update(UpdatePackageIncludes $request, $id)
     {
-        $feature = $this->model->find($id);
+        $include = $this->model->find($id);
 
-        if($feature->update($request->all())){
-            $request->session()->flash('status',  'success');
-            $request->session()->flash('message', 'Feature was updated successful!');
+        if($include->update($request->all())){
+            $request->session()->flash('status', 'success');
+            $request->session()->flash('message', 'Include updated successfully!');
         } else {
-            $request->session()->flash('status',  'danger');
+            $request->session()->flash('status', 'danger');
             $request->session()->flash('message', 'Oops! Something went wrong...');
         }
 
@@ -118,11 +118,11 @@ class FeatureController extends Controller
      */
     public function destroy($id)
     {
-        $feature = $this->model->find($id);
+        $include = $this->model->find($id);
 
-        if($feature->delete()){
+        if($include->delete()){
             request()->session()->flash('status', 'success');
-            request()->session()->flash('message', 'Feature deleted successfully!');
+            request()->session()->flash('message', 'Include deleted successfully!');
         } else {
             request()->session()->flash('status', 'danger');
             request()->session()->flash('message', 'Oops! Something went wrong...');

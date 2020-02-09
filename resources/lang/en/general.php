@@ -25,6 +25,10 @@ return [
     'itinerary_features'=>'Itinerary Features',
     'text'=>'Text',
     'icon'=>'Icon',
-    'features'=>'Features'
+    'features'=>'Features',
+    'key'=>'Key',
+    'value'=>'Value',
+    'includes'=>'Package Includes',
+    'not-includes'=>'Package Not Includes'
 
 ];

@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateFeature;
-use App\Http\Requests\UpdateFeature;
+use App\Http\Requests\UpdatePackageNotIncludes;
 use App\Interfaces\ModelInterface;
+use App\ItinerariesFeature;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreatePackageNotIncludes;
 
-class FeatureController extends Controller
+class NotIncludesController extends Controller
 {
-
     protected $model;
 
     public function __construct(ModelInterface $model)
@@ -23,8 +23,8 @@ class FeatureController extends Controller
      */
     public function index()
     {
-        $features = $this->model->paginate(10);
-        return view('admin.features.index', compact('features'));
+        $notIncludes = $this->model->paginate(10);
+        return view('admin.not-includes.index', compact('notIncludes'));
     }
 
     /**
@@ -34,22 +34,22 @@ class FeatureController extends Controller
      */
     public function create()
     {
-        return view('admin.features.create');
+        return view('admin.not-includes.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  CreateFeature  $request
+     * @param  CreatePackageNotIncludes $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateFeature $request)
+    public function store(CreatePackageNotIncludes $request)
     {
-        $feature = $this->model->create($request->all());
+        $notInclude = $this->model->create($request->except('_token','locale'));
 
-        if($feature){
+        if($notInclude){
             $request->session()->flash('status',  'success');
-            $request->session()->flash('message', 'New Feature was created successful!');
+            $request->session()->flash('message', 'New Package Not Includes was created successful!');
         } else {
             $request->session()->flash('status',  'danger');
             $request->session()->flash('message', 'Oops! Something went wrong...');
@@ -77,33 +77,33 @@ class FeatureController extends Controller
      */
     public function edit($id)
     {
-        $feature = $this->model->find($id);
+        $notInclude = $this->model->find($id);
 
-        if(!$feature) {
+        if(!$notInclude){
             request()->session()->flash('status',  'error');
-            request()->session()->flash('message', 'Requested Feature not found!');
-            return redirect()->route('features.index');
+            request()->session()->flash('message', 'Requested Package Not Includes not found!');
+            return redirect()->route('not-includes.index');
         }
 
-        return view('admin.features.edit', compact('feature'));
+        return view('admin.not-includes.edit', compact('notInclude'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  UpdateFeature  $request
+     * @param  UpdatePackageNotIncludes $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateFeature $request, $id)
+    public function update(UpdatePackageNotIncludes $request, $id)
     {
-        $feature = $this->model->find($id);
+        $notInclude = $this->model->find($id);
 
-        if($feature->update($request->all())){
-            $request->session()->flash('status',  'success');
-            $request->session()->flash('message', 'Feature was updated successful!');
+        if($notInclude->update($request->all())){
+            $request->session()->flash('status', 'success');
+            $request->session()->flash('message', 'Package Not Includes updated successfully!');
         } else {
-            $request->session()->flash('status',  'danger');
+            $request->session()->flash('status', 'danger');
             $request->session()->flash('message', 'Oops! Something went wrong...');
         }
 
@@ -118,11 +118,11 @@ class FeatureController extends Controller
      */
     public function destroy($id)
     {
-        $feature = $this->model->find($id);
+        $notInclude = $this->model->find($id);
 
-        if($feature->delete()){
+        if($notInclude->delete()){
             request()->session()->flash('status', 'success');
-            request()->session()->flash('message', 'Feature deleted successfully!');
+            request()->session()->flash('message', 'Package Not Includes deleted successfully!');
         } else {
             request()->session()->flash('status', 'danger');
             request()->session()->flash('message', 'Oops! Something went wrong...');

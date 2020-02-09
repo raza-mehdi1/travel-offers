@@ -16,8 +16,6 @@ class CreateFeaturesTable extends Migration
         Schema::create('features', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('icon');
-            $table->string('key');
-            $table->string('value');
             $table->timestamps();
         });
     }
