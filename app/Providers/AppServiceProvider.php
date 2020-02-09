@@ -4,11 +4,13 @@ namespace App\Providers;
 
 use App\Feature;
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\IncludesController;
 use App\Http\Controllers\ItinerariesController;
 use App\Http\Controllers\ItineraryFeaturesController;
 use App\Http\Controllers\NotIncludesController;
 use App\Http\Controllers\PackagesController;
+use App\Image;
 use App\Interfaces\ModelInterface;
 use App\ItinerariesFeature;
 use App\Itinerary;
@@ -71,6 +73,12 @@ class AppServiceProvider extends ServiceProvider
             ->needs(ModelInterface::class)
             ->give(function () {
                 return new PackageNotInclude();
+            });
+
+        $this->app->when( ImagesController::class)
+            ->needs(ModelInterface::class)
+            ->give(function () {
+                return new Image();
             });
 
         Itinerary::observe(ItineraryObserver::class);

@@ -30,6 +30,8 @@ return [
     'value'=>'Value',
     'includes'=>'Package Includes',
     'not-includes'=>'Package Not Includes',
-    'logout'=>'Logout'
+    'logout'=>'Logout',
+    'image'=>'Image',
+    'images'=>'Images',
 
 ];

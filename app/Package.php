@@ -32,4 +32,12 @@ class Package extends Model implements ModelInterface, TranslatableContract
     public function setTripEndDateTimeAttribute($value){
         $this->attributes['trip_end_date_time'] = Carbon::parse($value)->format('Y-m-d H:i:s');
     }
+
+    /**
+     * Get all of the images for the package.
+     */
+    public function images()
+    {
+        return $this->morphToMany(Image::class, 'imagable');
+    }
 }

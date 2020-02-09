@@ -30,5 +30,6 @@ Route::middleware('auth')->group(function () {
     Route::resource('features', 'FeatureController');
     Route::resource('includes', 'IncludesController');
     Route::resource('not-includes', 'NotIncludesController');
+    Route::resource('images', 'ImagesController');
 
 });

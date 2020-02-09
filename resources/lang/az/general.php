@@ -30,6 +30,8 @@ return [
     'value'=>'dəyəri',
     'includes'=>'Paket daxildir',
     'not-includes'=>'Paket daxil deyil',
-    'logout'=>'Çıxış'
+    'logout'=>'Çıxış',
+    'image'=>'Şəkil',
+    'images'=>'Şəkillər',
 
 ];
