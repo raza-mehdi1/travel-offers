@@ -46,6 +46,27 @@
             </select>
         </div>
 
+        <div class="form-group  {{ $errors->has('feature_ids') ? 'has-error' : '' }}">
+            <label>{{ __('general.features') }} *</label>
+            <select class="form-control select2" multiple="multiple" name="feature_ids[]">
+                @foreach($features as $feature)
+                    <option value="{{$feature->id}}"
+                        @include('admin.layouts.partials.select-option-decision',
+                                    [
+                                        'value'     =>  $feature->id,
+                                        'old'       =>  old('feature_ids'),
+                                        'editPageModelValuesArray'
+                                                    =>
+                                        !is_null(@$package) ? @$package->features()->pluck('feature_id')->toArray() : []
+                                    ]
+                                )
+                    >
+                        {!!  $feature->key !!}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+
         <div class="form-group  {{ $errors->has('include_addon_ids') ? 'has-error' : '' }}">
             <label>{{ __('general.include_addons') }} *</label>
             <select class="form-control select2" multiple="multiple" name="include_addon_ids[]">

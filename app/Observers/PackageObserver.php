@@ -9,6 +9,7 @@ class PackageObserver
     private function sync($model){
         $model->images()->sync(request()->get('image_ids'));
         $model->itineraries()->sync(request()->get('itinerary_ids'));
+        $model->features()->sync(request()->get('feature_ids'));
 
         if(request()->has('include_addon_ids')){
             $include_addon_ids = [];
@@ -36,6 +37,7 @@ class PackageObserver
     private function detach($model){
         $model->images()->detach();
         $model->itineraries()->detach();
+        $model->features()->detach();
         $model->excluded_addons()->detach();
         $model->included_addons()->detach();
     }

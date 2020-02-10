@@ -57,7 +57,7 @@
                                 <tbody>
                                     @foreach($features as $feature)
                                         <tr>
-                                            <td><i class="{!!$feature->icon!!}"></i> {{$feature->translate(app()->getLocale())->key}}</td>
+                                            <td> {!!  $feature->translate(app()->getLocale())->key !!}</td>
                                             <td>
                                                 <a class="btn btn-primary" href="{{route('features.edit', $feature->id)}}">Edit</a>
                                             </td>

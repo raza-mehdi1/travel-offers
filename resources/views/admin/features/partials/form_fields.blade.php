@@ -5,8 +5,12 @@
             <label>{{ __('general.icon') }} *</label>
             <div class="input-group" id="icon" data-target-input="nearest">
                 <select name="icon" class="form-control select2">
-                    @foreach(config('icons') as $icon)
-                        <option class="" value="fa fa-{{$icon}}">
+                    @foreach(config('linea-icons') as $icon)
+                        <option class="" value="{{$icon}}"
+                            @if(@$feature && !is_null(@$feature))
+                                {{$feature->icon == $icon ? 'selected' : ''}}
+                            @endif
+                        >
                             {{$icon}}
                         </option>
                     @endforeach

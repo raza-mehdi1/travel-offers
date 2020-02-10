@@ -92,7 +92,7 @@ class PackagesController extends Controller
         $itineraries        = Itinerary::all();
         $images             = Image::all();
         $features           = Feature::all();
-        $addons           = Addon::all();
+        $addons             = Addon::all();
         return view('admin.packages.edit',
             compact('package','itineraries', 'features', 'images', 'addons')
         );

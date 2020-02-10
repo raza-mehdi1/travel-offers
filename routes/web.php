@@ -11,14 +11,11 @@
 |
 */
 
-
-
 Route::get('/change-locale/{locale}', 'LocaleController@handle')
     ->name('change-locale');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'FrontendController@index')->name('index');
+Route::get('/details/{slug}', 'FrontendController@details')->name('details');
 
 Auth::routes();
 

@@ -19,8 +19,6 @@ use App\Itinerary;
 use App\Observers\ItineraryObserver;
 use App\Observers\PackageObserver;
 use App\Package;
-use App\PackageInclude;
-use App\PackageNotInclude;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
