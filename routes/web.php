@@ -22,7 +22,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('packages', 'PackagesController');
     Route::resource('itineraries', 'ItinerariesController');
@@ -30,5 +30,4 @@ Route::middleware('auth')->group(function () {
     Route::resource('features', 'FeatureController');
     Route::resource('addons', 'AddonsController');
     Route::resource('images', 'ImagesController');
-
 });
