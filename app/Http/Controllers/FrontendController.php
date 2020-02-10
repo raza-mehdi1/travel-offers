@@ -41,4 +41,8 @@ class FrontendController extends Controller
 
         return view('details', compact('package'));
     }
+
+    public function booking(){
+
+    }
 }

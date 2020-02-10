@@ -7,37 +7,37 @@
 
             <div class="row shrink-auto-md align-items-lg-center gap-10">
 
-{{--                <div class="col-12 col-shrink order-last-md">--}}
+                <div class="col-12 col-shrink order-last-md">
 
-{{--                    <div class="col-inner">--}}
+                    <div class="col-inner">
 
-{{--                        <div class="footer-dropdowns">--}}
+                        <div class="footer-dropdowns">
 
-{{--                            <div class="row shrink-auto gap-30 align-items-center">--}}
+                            <div class="row shrink-auto gap-30 align-items-center">
 
-{{--                                <div class="col-auto">--}}
+                                <div class="col-auto">
 
-{{--                                    <div class="col-inner">--}}
+                                    <div class="col-inner">
 
-{{--                                        <div class="dropdown dropdown-smooth-01 dropdown-language">--}}
-{{--                                            <a href="#" class="btn btn-text-inherit btn-interactive" id="dropdownLangauge" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-{{--                                                <span class="image"><img src="/theme/font-icons/flaticon-flags-4/png/260-united-kingdom.png" alt="image" /></span> English--}}
-{{--                                            </a>--}}
-{{--                                            <div class="dropdown-menu" aria-labelledby="dropdownLangauge">--}}
-{{--                                                <div class="dropdown-menu-inner">--}}
-{{--                                                    <a class="dropdown-item" href="#"><span class="image"><img src="/theme/font-icons/flaticon-flags-4/png/260-united-kingdom.png" alt="image" /></span>English</a>--}}
-{{--                                                    <a class="dropdown-item" href="#"><span class="image"><img src="/theme/font-icons/flaticon-flags-4/png/013-italy.png" alt="image" /></span>Italiano</a>--}}
+                                        <div class="dropdown dropdown-smooth-01 dropdown-language">
+                                            <a href="#" class="btn btn-text-inherit btn-interactive" id="dropdownLangauge" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span class="image"><img src="/theme/font-icons/flaticon-flags-4/png/{{app()->getLocale() == 'en' ? '260-united-kingdom' :  '141-azerbaijan' }}.png" alt="image" /></span> {{ucwords(app()->getLocale())}}
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownLangauge">
+                                                <div class="dropdown-menu-inner">
+                                                    <a class="dropdown-item" href="{{route('change-locale', 'en')}}"><span class="image"><img src="/theme/font-icons/flaticon-flags-4/png/260-united-kingdom.png" alt="image" /></span>En</a>
+                                                    <a class="dropdown-item" href="{{route('change-locale', 'az')}}"><span class="image"><img src="/theme/font-icons/flaticon-flags-4/png/141-azerbaijan.png" alt="image" /></span>Az</a>
 {{--                                                    <a class="dropdown-item" href="#"><span class="image"><img src="/theme/font-icons/flaticon-flags-4/png/063-japan.png" alt="image" /></span>日本語</a>--}}
 {{--                                                    <a class="dropdown-item" href="#"><span class="image"><img src="/theme/font-icons/flaticon-flags-4/png/162-germany.png" alt="image" /></span>Deutsch</a>--}}
 {{--                                                    <a class="dropdown-item" href="#"><span class="image"><img src="/theme/font-icons/flaticon-flags-4/png/218-turkey.png" alt="image" /></span>Türkçe</a>--}}
 {{--                                                    <a class="dropdown-item" href="#"><span class="image"><img src="/theme/font-icons/flaticon-flags-4/png/238-thailand.png" alt="image" /></span>ภาษาไทย</a>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
+                                                </div>
+                                            </div>
+                                        </div>
 
-{{--                                    </div>--}}
+                                    </div>
 
-{{--                                </div>--}}
+                                </div>
 
 {{--                                <div class="col-shrink">--}}
 
@@ -61,13 +61,13 @@
 
 {{--                                </div>--}}
 
-{{--                            </div>--}}
+                            </div>
 
-{{--                        </div>--}}
+                        </div>
 
-{{--                    </div>--}}
+                    </div>
 
-{{--                </div>--}}
+                </div>
 
 {{--                <div class="col-12 col-auto">--}}
 
@@ -122,8 +122,8 @@
                                     <h5 class="footer-title">About company</h5>
                                     <ul class="footer-menu-list set-width">
                                         <li><a href="#">Who we are</a></li>
-                                        <li><a href="#">Careers</a></li>
-                                        <li><a href="#">Company history</a></li>
+{{--                                        <li><a href="#">Careers</a></li>--}}
+{{--                                        <li><a href="#">Company history</a></li>--}}
                                         <li><a href="#">Legal</a></li>
                                         <li><a href="#">Partners</a></li>
                                         <li><a href="#">Privacy notice</a></li>
@@ -142,35 +142,35 @@
                                         <li><a href="#">Contact us</a></li>
                                         <li><a href="#">Our Service</a></li>
                                         <li><a href="#">FAQ</a></li>
-                                        <li><a href="#">Site map</a></li>
+{{--                                        <li><a href="#">Site map</a></li>--}}
                                     </ul>
                                 </div>
 
                             </div>
 
-                            <div class="col-12 col-auto">
+{{--                            <div class="col-12 col-auto">--}}
 
-                                <div class="col-inner">
-                                    <h5 class="footer-title">Newsletter &amp; Social</h5>
-                                    <p class="font12">Savings her pleased are several started females met. Short her not among being any.</p>
-                                    <form class="footer-newsletter mt-20">
-                                        <div class="input-group">
-                                            <input type="email" class="form-control" placeholder="Email address">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-primary" type="button"><i class="far fa-envelope"></i></button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <div class="footer-socials mt-20">
-                                        <a href="#"><i class="fab fa-facebook-square"></i></a>
-                                        <a href="#"><i class="fab fa-twitter-square"></i></a>
-                                        <a href="#"><i class="fab fa-google-plus-square"></i></a>
-                                        <a href="#"><i class="fab fa-pinterest-square"></i></a>
-                                        <a href="#"><i class="fab fa-flickr"></i></a>
-                                    </div>
-                                </div>
+{{--                                <div class="col-inner">--}}
+{{--                                    <h5 class="footer-title">Newsletter &amp; Social</h5>--}}
+{{--                                    <p class="font12">Savings her pleased are several started females met. Short her not among being any.</p>--}}
+{{--                                    <form class="footer-newsletter mt-20">--}}
+{{--                                        <div class="input-group">--}}
+{{--                                            <input type="email" class="form-control" placeholder="Email address">--}}
+{{--                                            <div class="input-group-append">--}}
+{{--                                                <button class="btn btn-primary" type="button"><i class="far fa-envelope"></i></button>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </form>--}}
+{{--                                    <div class="footer-socials mt-20">--}}
+{{--                                        <a href="#"><i class="fab fa-facebook-square"></i></a>--}}
+{{--                                        <a href="#"><i class="fab fa-twitter-square"></i></a>--}}
+{{--                                        <a href="#"><i class="fab fa-google-plus-square"></i></a>--}}
+{{--                                        <a href="#"><i class="fab fa-pinterest-square"></i></a>--}}
+{{--                                        <a href="#"><i class="fab fa-flickr"></i></a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
 
-                            </div>
+{{--                            </div>--}}
 
                         </div>
 
