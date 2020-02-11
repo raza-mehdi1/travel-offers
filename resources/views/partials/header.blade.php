@@ -72,7 +72,7 @@
                                         <li>
                                             <a href="result-grid.html">Tour Packages</a>
                                             <ul>
-                                                @foreach($menu_packages as $package)
+                                                @foreach(\App\Package::all() as $package)
                                                 <li><a href="{{route('details', $package->title)}}">{!! $package->title !!}</a></li>
                                                 @endforeach
 {{--                                                <li><a href="tour-result-grid.html">Result - Grid</a></li>--}}

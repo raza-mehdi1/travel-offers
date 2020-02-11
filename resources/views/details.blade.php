@@ -65,7 +65,7 @@
     <script>
         var packagePricePerHead = parseFloat('{{$package->price_per_head}}');
         var child_rate_fraction = parseFloat('{{config('travel-offers.child_rate_fraction')}}');
-        alert(child_rate_fraction);
+        // alert(child_rate_fraction);
         $('.slick-hero').slick({
             dots: true,
             infinite: true,

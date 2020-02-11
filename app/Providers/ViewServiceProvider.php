@@ -25,6 +25,6 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::share('menu_packages', \App\Package::all());
+//        View::share('menu_packages', \App\Package::all());
     }
 }
