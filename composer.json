@@ -58,12 +58,6 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
-        ],
-        "post-install-cmd": [
-            "chmod -R 777 public/",
-            "composer update",
-            "php artisan migrate --force",
-            "php artisan db:seed --force"
         ]
     }
 }
