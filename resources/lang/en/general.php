@@ -38,6 +38,7 @@ return [
     'include_addons'=>'Include Addons',
     'exclude_addons'=>'Exclude Addons',
     'book_the_trip'=>'Book the trip',
-    'view_details'=>'View Details'
+    'view_details'=>'View Details',
+    'book_now'=>'Book Now'
 
 ];

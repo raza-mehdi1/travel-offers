@@ -16,6 +16,10 @@ Route::get('/change-locale/{locale}', 'LocaleController@handle')
 
 Route::get('/', 'FrontendController@index')->name('index');
 Route::get('/details/{slug}', 'FrontendController@details')->name('details');
+Route::post('/booking-details/{slug}', 'FrontendController@bookingDetails')->name('booking-details');
+Route::post('/book/{slug}', 'FrontendController@book')->name('book');
+Route::post('/checkout', 'FrontendController@checkout')->name('checkout');
+Route::get('/confirmed/{booking_id}', 'FrontendController@confirmed')->name('confirmed');
 
 Auth::routes();
 

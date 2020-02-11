@@ -64,6 +64,8 @@
     <script type="text/javascript" src="/theme/js/custom-multiply-sticky.js"></script>
     <script>
         var packagePricePerHead = parseFloat('{{$package->price_per_head}}');
+        var child_rate_fraction = parseFloat('{{config('travel-offers.child_rate_fraction')}}');
+        alert(child_rate_fraction);
         $('.slick-hero').slick({
             dots: true,
             infinite: true,
@@ -82,7 +84,7 @@
             let adults = $('input[name="adult_guests"]').val();
             let children = $('input[name="child_guests"]').val();
 
-            let packagePricePerHeadChildren = (packagePricePerHead/2);
+            let packagePricePerHeadChildren = (packagePricePerHead * child_rate_fraction);
 
             let adultsTotal = Math.round(adults * packagePricePerHead);
             let childrenTotal = Math.round(children * packagePricePerHeadChildren);
