@@ -18,10 +18,16 @@ class LocalesTableSeeder extends Seeder
 
         foreach($locales as $locale=>$localeName)
         {
-            \App\Locale::create([
-                'locale'=>$locale,
-                'locale_name'=>$localeName
-            ]);
+
+            \App\Locale::updateOrCreate(
+                [
+                    'locale'=>$locale
+                ],
+                [
+                    'locale'=>$locale,
+                    'locale_name'=>$localeName
+                ]
+            );
         }
     }
 }
