@@ -18,7 +18,7 @@ class CreateAddonTranslationsTable extends Migration
             $table->string('locale');
             $table->integer('addon_id');
             $table->string('title');
-            $table->text('description');
+            $table->longText('description');
             $table->timestamps();
         });
     }

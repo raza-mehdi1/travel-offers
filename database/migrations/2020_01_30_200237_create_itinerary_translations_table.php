@@ -19,7 +19,7 @@ class CreateItineraryTranslationsTable extends Migration
             $table->string('locale');
             $table->string('side_title');
             $table->string('title');
-            $table->string('description');
+            $table->longText('description');
             $table->timestamps();
         });
     }
