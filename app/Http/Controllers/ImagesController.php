@@ -48,7 +48,7 @@ class ImagesController extends Controller
             'path' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $path = $request->file('path')->store('/avatars');
+        $path = $request->file('path')->store('/avatars', 's3');
 
         if($path == ''){
             return redirect()->back()->with('error','Oops! Something went wrong...');
@@ -56,7 +56,7 @@ class ImagesController extends Controller
 
         $image = $this->model->create([
             'path'=>trim($path, 'public'),
-            'storage_path'=>'storage/'.$path
+            'storage_path'=>$path
         ]);
 
         if(!$image)
@@ -108,21 +108,24 @@ class ImagesController extends Controller
 
         if(!$image)
             return redirect()->back()->with('status','error')->with('message','Requested Image not found!');
+
+        $oldImagePath = $image->path;
+
         $request->validate([
             'path' => 'required|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $path = $request->file('path')->store('/avatars');
+        $path = $request->file('path')->store('/avatars', 's3');
 
         if($path == ''){
             return redirect()->back()->with('status', 'error')->with('message', 'Oops! Something went wrong...');
         } else {
-            Storage::delete($image->path);
+            Storage::delete($oldImagePath);
         }
 
         $isUpdated = $image->update([
             'path'=>trim($path, 'public'),
-            'storage_path'=>'storage/'.$path
+            'storage_path'=>$path
         ]);
 
         if(!$isUpdated)

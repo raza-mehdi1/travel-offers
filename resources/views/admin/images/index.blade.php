@@ -57,7 +57,7 @@
                                 <tbody>
                                     @foreach($images as $image)
                                         <tr>
-                                            <td><img src="{{asset($image->storage_path)}}" width="100"/></td>
+                                            <td><img src="{{$image->storage_path}}" width="100"/></td>
                                             <td>
                                                 <a class="btn btn-primary" href="{{route('images.edit', $image->id)}}">Edit</a>
                                             </td>

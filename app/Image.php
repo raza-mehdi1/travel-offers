@@ -20,6 +20,9 @@ class Image extends Model implements ModelInterface
     }
 
     public function getStoragePathAttribute($value){
-        return asset($value);
+        if(config('filesystems.default') === 's3')
+            return config('filesystems.disks.s3.url').'/'.$value;
+        else if(config('filesystems.default') === 'public')
+            return asset('storage/'.$value);
     }
 }
