@@ -9,7 +9,7 @@
 
                 <a href="#" class="tour-small-grid-01 mb-20 clearfix">
 
-                    <div class="image"><img src="{!! $package->images()->first()->storage_path !!}" alt="image" /></div>
+                    <div class="image"><img src="{!! $package->images()->first() ? $package->images()->first()->storage_path : '' !!}" alt="image" /></div>
                     <div class="content">
                         <h6>{!! $package->title !!}</h6>
                         <ul class="item-meta">

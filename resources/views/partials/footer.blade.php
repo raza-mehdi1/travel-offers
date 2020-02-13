@@ -69,20 +69,23 @@
 
                 </div>
 
-{{--                <div class="col-12 col-auto">--}}
+                <div class="col-12 col-auto">
 
-{{--                    <div class="col-inner">--}}
-{{--                        <ul class="footer-contact-list">--}}
-{{--                            <li>--}}
-{{--                                <span class="icon-font text-primary inline-block-middle mr-5 font16"><i class="fa fa-phone"></i></span> <span class="font700 text-black">1 2258 2554 00</span> <span class="text-muted">Mon-Fri | 8.30am-6:30pm</span>--}}
-{{--                            </li>--}}
-{{--                            <li>--}}
-{{--                                <span class="icon-font text-primary inline-block-middle mr-5 font16"><i class="fa fa-envelope"></i></span> <span class="font700 text-black">support@gmail.com</span>--}}
-{{--                            </li>--}}
-{{--                        </ul>--}}
-{{--                    </div>--}}
+                    <div class="col-inner">
+                        <ul class="footer-contact-list">
+                            <li>
+                                <span class="icon-font text-primary inline-block-middle mr-5 font16"><i class="fa fa-phone"></i></span> <span class="font700 text-black">+994558489228</span> <span class="text-muted">Mon-Fri | 8.30am-6:30pm</span>
+                            </li>
+                            <li>
+                                <span class="icon-font text-primary inline-block-middle mr-5 font16"><i class="fa fa-envelope"></i></span> <span class="font700 text-black">Abbasqulu Aga Bakikhanov, Bridge plaza, AZ1022</span>
+                            </li>
+                            <li>
+                                <span class="icon-font text-primary inline-block-middle mr-5 font16"><i class="fa fa-at"></i></span> <span class="font700 text-black">online@traveloffers.az</span>
+                            </li>
+                        </ul>
+                    </div>
 
-{{--                </div>--}}
+                </div>
 
             </div>
 

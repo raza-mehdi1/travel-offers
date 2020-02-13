@@ -220,7 +220,7 @@
                                 <a href="#">
 
                                     <div class="image">
-                                        <img src="{{$package->images()->first()->storage_path}}" alt="images" />
+                                        <img src="{{$package->images()->first() ? $package->images()->first()->storage_path:''}}" alt="images" />
                                     </div>
 
                                     <figcaption class="content">
