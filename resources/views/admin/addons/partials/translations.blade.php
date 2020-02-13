@@ -19,7 +19,9 @@
                     </div>
                     <div class="form-group  {{ $errors->has($locale->locale.'.description') ? 'has-error' : '' }}">
                         <label>{{ __('general.description') }} *</label>
-                        <input class="form-control" name="{{$locale->locale}}[description]" value="{{ @$include ? $include->translate($locale->locale)->description : old($locale->locale.'.description' ,optional($locale->locale)->{'description:'.$locale->locale}) }}" placeholder="@lang('general.description')">
+                        <textarea class="form-control" name="{{$locale->locale}}[description]"  placeholder="@lang('general.description')">
+                            {{ @$include ? $include->translate($locale->locale)->description : old($locale->locale.'.description' ,optional($locale->locale)->{'description:'.$locale->locale}) }}
+                        </textarea>
                     </div>
 
                 </div>
