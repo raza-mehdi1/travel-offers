@@ -15,6 +15,8 @@ class CreateFeatureTranslationsTable extends Migration
     {
         Schema::create('feature_translations', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('locale');
+            $table->integer('feature_id');
             $table->string('key');
             $table->string('value');
             $table->timestamps();
