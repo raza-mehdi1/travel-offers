@@ -14,9 +14,9 @@
                     </div>
                 </div>
 
-{{--                <div class="col-7 col-shrink order-last-lg">--}}
-{{--                    <div class="col-inner">--}}
-{{--                        <ul class="nav-mini-right">--}}
+                <div class="col-7 col-shrink order-last-lg" style="border-right: transparent !important;">
+                    <div class="col-inner">
+                        <ul class="nav-mini-right">
 {{--                            <li class="d-none d-sm-block">--}}
 {{--                                <a href="#loginFormTabInModal-register" data-toggle="modal" data-target="#loginFormTabInModal" data-backdrop="static" data-keyboard="false">--}}
 {{--                                    <span class="icon-font"><i class="icon-user-follow"></i></span> Register--}}
@@ -32,12 +32,12 @@
 {{--                                    Login / Register--}}
 {{--                                </a>--}}
 {{--                            </li>--}}
-{{--                            <li>--}}
-{{--                                <button class="btn btn-toggle collapsed" data-toggle="collapse" data-target="#mobileMenu"></button>--}}
-{{--                            </li>--}}
-{{--                        </ul>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+                            <li>
+                                <button class="btn btn-toggle collapsed" data-toggle="collapse" data-target="#mobileMenu"></button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
                 <div class="col-12 col-auto">
 
