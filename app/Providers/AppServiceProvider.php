@@ -12,13 +12,16 @@ use App\Http\Controllers\ItinerariesController;
 use App\Http\Controllers\ItineraryFeaturesController;
 use App\Http\Controllers\NotIncludesController;
 use App\Http\Controllers\PackagesController;
+use App\Http\Controllers\PagesController;
 use App\Image;
 use App\Interfaces\ModelInterface;
 use App\ItinerariesFeature;
 use App\Itinerary;
 use App\Observers\ItineraryObserver;
 use App\Observers\PackageObserver;
+use App\Observers\PagesObserver;
 use App\Package;
+use App\Page;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -42,6 +45,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Itinerary::observe(ItineraryObserver::class);
         Package::observe(PackageObserver::class);
+        Page::observe(PagesObserver::class);
 
         $this->app->when(PackagesController::class)
             ->needs(ModelInterface::class)
@@ -77,6 +81,12 @@ class AppServiceProvider extends ServiceProvider
             ->needs(ModelInterface::class)
             ->give(function () {
                 return new Image();
+            });
+
+        $this->app->when( PagesController::class)
+            ->needs(ModelInterface::class)
+            ->give(function () {
+                return new Page();
             });
 
     }

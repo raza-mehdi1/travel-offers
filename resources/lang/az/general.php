@@ -39,6 +39,8 @@ return [
     'exclude_addons'=>'Əlavələri xaric edin',
     'book_the_trip'=>'Gəzintini sifariş edin',
     'view_details'=>'Detallara baxın',
-    'book_now'=>'İndi sifariş edin'
-
+    'book_now'=>'İndi sifariş edin',
+    'slug'=>'Slug in Az',
+    'pages'=>'Pages in Az',
+    'page'=>'Page in Az'
 ];

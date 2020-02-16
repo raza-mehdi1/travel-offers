@@ -70,6 +70,12 @@
                         <p>  {{__('general.packages')}}</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('pages.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-file"></i> &nbsp;
+                        <p>  {{__('general.pages')}}</p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

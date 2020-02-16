@@ -88,6 +88,25 @@
 {{--                                                <li><a href="destinations-02.html">Destinations 02</a></li>--}}
                                             </ul>
                                         </li>
+                                        <li>
+                                            <a href="javascript:void(0)">{!! __('general.pages') !!}</a>
+                                            <ul>
+                                                @foreach(\App\Page::all() as $page)
+                                                    <li><a href="{{route('page', $page->slug)}}">{!! ucwords($page->slug) !!}</a></li>
+                                                @endforeach
+{{--                                                <li><a href="tour-result-grid.html">Result - Grid</a></li>--}}
+{{--                                                <li><a href="tour-detail.html">Detail 01</a></li>--}}
+{{--                                                <li><a href="tour-detail-02.html">Detail 02</a></li>--}}
+{{--                                                <li><a href="tour-detail-03.html">Detail 03</a></li>--}}
+{{--                                                <li><a href="tour-detail-04.html">Detail 04</a></li>--}}
+{{--                                                <li><a href="tour-detail-05.html">Detail 05</a></li>--}}
+{{--                                                <li><a href="tour-detail-empty-booking.html">Detail - empty booking</a></li>--}}
+{{--                                                <li><a href="tour-payment.html">Payment</a></li>--}}
+{{--                                                <li><a href="tour-conformation.html">Conformation</a></li>--}}
+{{--                                                <li><a href="destinations-01.html">Destinations 01</a></li>--}}
+{{--                                                <li><a href="destinations-02.html">Destinations 02</a></li>--}}
+                                            </ul>
+                                        </li>
                                         <li><a href="javascript:void(0)">Blog</a>
 {{--                                            <ul>--}}
 {{--                                                <li><a href="blog-01.html"> Blog - Grid Full 01</a></li>--}}

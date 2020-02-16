@@ -20,12 +20,14 @@ Route::post('/booking-details/{slug}', 'FrontendController@bookingDetails')->nam
 Route::post('/book/{slug}', 'FrontendController@book')->name('book');
 Route::post('/checkout', 'FrontendController@checkout')->name('checkout');
 Route::get('/confirmed/{booking_id}', 'FrontendController@confirmed')->name('confirmed');
+Route::get('/pages/{slug}', 'PagesController@page')->name('page');
 
 Auth::routes();
 
 Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('packages', 'PackagesController');
+    Route::resource('pages', 'PagesController');
     Route::resource('itineraries', 'ItinerariesController');
     Route::resource('itinerary_features', 'ItineraryFeaturesController');
     Route::resource('features', 'FeatureController');
