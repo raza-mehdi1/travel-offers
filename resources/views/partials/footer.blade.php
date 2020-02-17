@@ -72,17 +72,17 @@
                 <div class="col-12 col-auto">
 
                     <div class="col-inner">
-                        <ul class="footer-contact-list">
-                            <li>
+                        <div class="footer-contact-list">
+                            <div>
                                 <span class="icon-font text-primary inline-block-middle mr-5 font16"><i class="fa fa-phone"></i></span> <span class="font700 text-black">+994558489228</span> <span class="text-muted">Mon-Fri | 8.30am-6:30pm</span>
-                            </li>
-                            <li>
+                            </div>
+                            <div>
                                 <span class="icon-font text-primary inline-block-middle mr-5 font16"><i class="fa fa-envelope"></i></span> <span class="font700 text-black">Abbasqulu Aga Bakikhanov, Bridge plaza, AZ1022</span>
-                            </li>
-                            <li>
+                            </div>
+                            <div>
                                 <span class="icon-font text-primary inline-block-middle mr-5 font16"><i class="fa fa-at"></i></span> <span class="font700 text-black">online@traveloffers.az</span>
-                            </li>
-                        </ul>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -120,36 +120,31 @@
                         <div class="row shrink-auto-sm gap-30">
 
                             <div class="col-6 col-shrink">
-
                                 <div class="col-inner">
                                     <h5 class="footer-title">About company</h5>
                                     <ul class="footer-menu-list set-width">
-                                        <li><a href="#">Who we are</a></li>
-{{--                                        <li><a href="#">Careers</a></li>--}}
-{{--                                        <li><a href="#">Company history</a></li>--}}
-                                        <li><a href="#">Legal</a></li>
-                                        <li><a href="#">Partners</a></li>
-                                        <li><a href="#">Privacy notice</a></li>
+                                        @foreach(\App\Page::all() as $page)
+                                           <li><a href="{{route('page', $page->slug)}}">{{$page->slug == 'about us' ? 'Who we are' : ucwords($page->slug)}}</a></li>
+                                        @endforeach
                                     </ul>
                                 </div>
-
                             </div>
 
-                            <div class="col-6 col-shrink">
+{{--                            <div class="col-6 col-shrink">--}}
 
-                                <div class="col-inner">
-                                    <h5 class="footer-title">Customer Service</h5>
-                                    <ul class="footer-menu-list set-width">
-                                        <li><a href="#">Payment</a></li>
-                                        <li><a href="#">Feedback</a></li>
-                                        <li><a href="#">Contact us</a></li>
-                                        <li><a href="#">Our Service</a></li>
-                                        <li><a href="#">FAQ</a></li>
+{{--                                <div class="col-inner">--}}
+{{--                                    <h5 class="footer-title">Customer Service</h5>--}}
+{{--                                    <ul class="footer-menu-list set-width">--}}
+{{--                                        <li><a href="#">Payment</a></li>--}}
+{{--                                        <li><a href="#">Feedback</a></li>--}}
+{{--                                        <li><a href="#">Contact us</a></li>--}}
+{{--                                        <li><a href="#">Our Service</a></li>--}}
+{{--                                        <li><a href="#">FAQ</a></li>--}}
 {{--                                        <li><a href="#">Site map</a></li>--}}
-                                    </ul>
-                                </div>
+{{--                                    </ul>--}}
+{{--                                </div>--}}
 
-                            </div>
+{{--                            </div>--}}
 
 {{--                            <div class="col-12 col-auto">--}}
 
@@ -189,20 +184,20 @@
 
     <div class="bottom-footer">
 
-        <div class="container">
+{{--        <div class="container">--}}
 
-            <div class="row shrink-auto-md gap-10 gap-40-lg">
+{{--            <div class="row shrink-auto-md gap-10 gap-40-lg">--}}
 
-                <div class="col-auto">
-                    <div class="col-inner">
-                        <ul class="footer-menu-list-02">
-                            <li><a href="#">Cookies</a></li>
-                            <li><a href="#">Policies</a></li>
-                            <li><a href="#">Terms</a></li>
-                            <li><a href="#">Blogs</a></li>
-                        </ul>
-                    </div>
-                </div>
+{{--                <div class="col-auto">--}}
+{{--                    <div class="col-inner">--}}
+{{--                        <ul class="footer-menu-list-02">--}}
+{{--                            <li><a href="#">Cookies</a></li>--}}
+{{--                            <li><a href="#">Policies</a></li>--}}
+{{--                            <li><a href="#">Terms</a></li>--}}
+{{--                            <li><a href="#">Blogs</a></li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
 {{--                <div class="col-shrink">--}}
 {{--                    <div class="col-inner">--}}
@@ -210,9 +205,9 @@
 {{--                    </div>--}}
 {{--                </div>--}}
 
-            </div>
+{{--            </div>--}}
 
-        </div>
+{{--        </div>--}}
 
     </div>
 

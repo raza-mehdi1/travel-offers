@@ -142,6 +142,9 @@ class PagesController extends Controller
         $page = $this->model->where('slug', $slug)
             ->first();
 
+        if(!$page)
+            return redirect()->back();
+
         return view('page', compact('page'));
 
     }
