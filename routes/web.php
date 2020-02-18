@@ -21,6 +21,8 @@ Route::post('/book/{slug}', 'FrontendController@book')->name('book');
 Route::post('/checkout', 'FrontendController@checkout')->name('checkout');
 Route::get('/confirmed/{booking_id}', 'FrontendController@confirmed')->name('confirmed');
 Route::get('/pages/{slug}', 'PagesController@page')->name('page');
+Route::get('/contact-us', 'PagesController@contactUs')->name('contact-us-form');
+Route::post('/contact-us', 'PagesController@sendContactUsEmail')->name('contact-us-email');
 
 Auth::routes();
 

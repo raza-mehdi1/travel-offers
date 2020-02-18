@@ -9,8 +9,11 @@ use App\Http\Requests\UpdatePackage;
 use App\Image;
 use App\Interfaces\ModelInterface;
 use App\Itinerary;
+use App\Mail\ContactUs;
 use App\Package;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 
@@ -147,5 +150,26 @@ class PagesController extends Controller
 
         return view('page', compact('page'));
 
+    }
+
+    public function contactUs(){
+        return view('contact-us');
+    }
+
+    public function sendContactUsEmail(){
+        $request = request()->all();
+
+        $toUser = new User();
+        $toUser->email = config('mail.to');
+        $toUser->name = config('mail.from.name');
+
+        $user = new User();
+        $user->email = $request['email'];
+        $user->name = $request['name'];
+        $user->message = $request['message'];
+        $user->subject = $request['subject'];
+
+        Mail::to($toUser)->send(new ContactUs($user));
+        return \redirect()->back();
     }
 }
