@@ -130,7 +130,9 @@
                                     <h5 class="footer-title">About company</h5>
                                     <ul class="footer-menu-list set-width">
                                         @foreach(\App\Page::all() as $page)
-                                           <li><a href="{{route('page', $page->slug)}}">{{$page->slug == 'about us' ? 'Who we are' : ucwords($page->slug)}}</a></li>
+                                            @if(in_array($page->slug, ['Privacy policy', 'Refund Policy', 'Booking Terms & Conditions', 'About us', 'About Azerbaijan', 'FAQ']))
+                                                <li><a href="{{route('page', $page->slug)}}">{{$page->slug == 'about us' ? 'Who we are' : ucwords($page->slug)}}</a></li>
+                                            @endif
                                         @endforeach
                                     </ul>
                                 </div>
