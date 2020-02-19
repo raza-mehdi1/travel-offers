@@ -70,7 +70,7 @@
             var locales = ['en', 'az'];
             locales.forEach(function (locale, key) {
                 $('#summernote'+locale).summernote({
-                    height: 100,
+                    height: 600,
                 });
             });
         });
