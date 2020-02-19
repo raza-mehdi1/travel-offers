@@ -82,6 +82,12 @@
                             <div>
                                 <span class="icon-font text-primary inline-block-middle mr-5 font16"><i class="fa fa-at"></i></span> <span class="font700 text-black">online@traveloffers.az</span>
                             </div>
+                            <div>
+                                <span class="icon-font text-primary inline-block-middle mr-5 font16"><i class="fas fa-percent"></i></span> <span class="font700 text-black">Tax ID: 1404932861</span>
+                            </div>
+                            <div>
+                                <span class="icon-font text-primary inline-block-middle mr-5 font16"><i class="far fa-address-card"></i></span> <span class="font700 text-black">"ZONZO" Limited Liability Company</span>
+                            </div>
                         </div>
                     </div>
 
