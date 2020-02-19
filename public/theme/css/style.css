@@ -1,8 +1,8 @@
 /*------------------------------------------------------------------
 * Project:        Tourperator
-* Author:         Crenoveative 
-* URL:            http://crenoveative.com or https://themeforest.net/user/crenoveative/portfolio 
-* Created:        10/09/2019 
+* Author:         Crenoveative
+* URL:            http://crenoveative.com or https://themeforest.net/user/crenoveative/portfolio
+* Created:        10/09/2019
 -------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------
@@ -1305,7 +1305,7 @@ ul.horizon-sticky-nav > li.active a {
     .slick-list-visible .slick-hero-wrapper .slick-next {
         right: -10px;
     }
-	
+
 	.hero-banner-01 .search-form-main .form-group {
 		padding: 15px 20px;
 	}
@@ -1314,13 +1314,13 @@ ul.horizon-sticky-nav > li.active a {
 		font-size: 18px;
 		letter-spacing: 1px;
 	}
-	
+
 	.hero-banner-01 .search-form-main .btn {
 		font-size: 20px;
 		height: 82px;
 		line-height: 82px;
 	}
-	
+
 	.hero-banner-01 .search-form-main .chosen-container-single .chosen-single {
 		height: auto;
 		padding: 0;
@@ -1363,7 +1363,7 @@ ul.horizon-sticky-nav > li.active a {
 /**
  * Back To Top
  */
- 
+
 .back-to-top {
     cursor: pointer;
     position: fixed;
@@ -1400,7 +1400,7 @@ ul.horizon-sticky-nav > li.active a {
 /**
  * Footer
  */
- 
+
 .footer-wrapper {
     background-color: #FFF;
     line-height: 1.65;
@@ -1422,7 +1422,7 @@ ul.horizon-sticky-nav > li.active a {
 }
 
 .footer-wrapper .footer-logo img {
-    width: 150px;
+    width: 250px;
     height: auto;
 }
 
@@ -1785,9 +1785,9 @@ ul.horizon-sticky-nav > li.active a {
     font-size: 13px;
 }
 
-.breadcrumb-item a, 
-.breadcrumb-item span { 
-	font-weight: 400; 
+.breadcrumb-item a,
+.breadcrumb-item span {
+	font-weight: 400;
 }
 
 .page-title .breadcrumb-item {
@@ -2422,7 +2422,7 @@ a.destination-grid-item-02 {
 }
 
 
- 
+
 /**
  * Featured
  */
@@ -2682,7 +2682,7 @@ ul.list-li-border-top li:first-child {
 /**
  * Result page
  */
- 
+
 .page-result-01 .sort-item {
     margin-bottom: 30px;
 }
@@ -2791,7 +2791,7 @@ ul.list-li-border-top li:first-child {
 }
 
 
- 
+
 /**
  * Detail page
  */
