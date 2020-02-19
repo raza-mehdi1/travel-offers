@@ -29,12 +29,11 @@
 
             </div>
 
-
             <div class="container pt-30">
 
                 <div class="row gap-20 gap-lg-40">
 
-                    {!! $page->body !!}
+                    {!! $page->translate(app()->getLocale())->body !!}
 
                 </div>
 
@@ -43,4 +42,5 @@
         </section>
 
     </div>
+
 @endsection
